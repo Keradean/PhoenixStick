@@ -16,9 +16,13 @@ Referenzen in `design/referenz/`: HTML-Mockups aus dem Design-Tool, kein lauffä
 | `startbildschirm-phoenix.html` | **Maßgeblicher Aufbau** und Theme Phönix |
 | `phoenix-hero.svg` | Bild der Bühne für Phönix |
 | `startbildschirm-scifi.html` | Look von Sci-Fi. Noch im alten Aufbau ohne Icon-Leiste und Chips: nur Farben, Schriften und Formen übernehmen |
-| `scifi-hintergrund.svg` | Raster und Radar für Sci-Fi |
+| `scifi-hintergrund.svg` | Raster und Radar für Sci-Fi zusammen (nur Referenz) |
+| `scifi-hero.svg` | Bild der Bühne für Sci-Fi, 1632 × 480 |
+| `scifi-raster.svg` | Hintergrund für Sci-Fi über den ganzen Bildschirm, 1920 × 1080 |
 | `profilauswahl.html` | Aufbau der Profilauswahl. Farben aus dem jeweiligen Theme |
-| `variante-a-raster.html` | Maße der Alle-Apps-Seite |
+| `alle-apps-scifi.html` | **Alle Apps** im Sci-Fi-Look, maßgeblich für diese Seite |
+| `profil-bearbeiten-scifi.html` | **Profil bearbeiten** im Sci-Fi-Look |
+| `variante-a-raster.html` | ersetzt durch `alle-apps-scifi.html`, nicht mehr verwenden |
 | `alt/` | Verworfene Entwürfe, nicht verwenden |
 
 Wenn dieses Dokument und eine Referenz sich widersprechen, gilt dieses Dokument.
@@ -28,6 +32,8 @@ Wenn dieses Dokument und eine Referenz sich widersprechen, gilt dieses Dokument.
 - **10-Fuß-Oberfläche:** Bedienung nur mit der Fernbedienung (Steuerkreuz, OK, Zurück, Home, Menü).
 - **Fokus ist immer sichtbar.** Genau ein Element hat den Fokus.
 - **Keine Werbung, keine Autoplay-Videos, kein Tracking, keine Netzwerkzugriffe.**
+- **Bildrand für Fernseher (Overscan):** Viele Fernseher schneiden am Rand etwas ab. Der ganze Entwurf (1920 × 1080) wird deshalb in einen sicheren Bereich skaliert und mittig gesetzt. Standard: 5 % Rand an allen Seiten. In den Launcher-Einstellungen einstellbar von 0 bis 8 % in 1-%-Schritten, mit Vorschau-Rahmen in den Ecken. Hintergrundfarbe und Raster laufen trotzdem bis zum echten Bildschirmrand.
+- **Skalierung:** Faktor = kleinerer Wert aus (sichere Breite / 1920) und (sichere Höhe / 1080). Nie nur nach der Breite skalieren.
 - Alle Maße in **px bei 1920 × 1080**. Auf dem Stick prüfen: `adb shell wm size` und `adb shell wm density`. Bei Dichte 320 gilt dp = px / 2.
 
 ## Aufbau Startbildschirm (alle Themes)
@@ -93,7 +99,7 @@ Werte: `design/tokens/phoenix.json`. Referenz: `startbildschirm-phoenix.html`.
 
 ## Theme Sci-Fi (Arbeitstitel): wird zuerst gebaut
 
-Werte: `design/tokens/scifi.json`. Referenz für den Look: `startbildschirm-scifi.html`, Hintergrund `scifi-hintergrund.svg`.
+Werte: `design/tokens/scifi.json`. Referenz für den Look: `startbildschirm-scifi.html`, Bühne `scifi-hero.svg`, Hintergrund `scifi-raster.svg`.
 
 - **Stimmung:** Holo-Oberfläche auf einem Raumschiff. Fast schwarzes Nachtblau, Cyan, feine Linien statt Flächen.
 - **Hintergrund:** feines Raster (48 px) über den ganzen Bildschirm, Radar-Kreise als Bild der Bühne.
@@ -106,7 +112,7 @@ Werte: `design/tokens/scifi.json`. Referenz für den Look: `startbildschirm-scif
 
 ## Themes im Code
 
-Jede Theme-Datei hat einen Block `style`. Die Komponenten lesen ihn und zeichnen sich danach:
+Aufbau einer Theme-Datei: `docs/THEME-SCHEMA.md`. Jede Theme-Datei hat einen Block `style`. Die Komponenten lesen ihn und zeichnen sich danach:
 
 | Schlüssel | Phönix | Sci-Fi |
 | --- | --- | --- |
@@ -136,10 +142,29 @@ Referenz: `profilauswahl.html` (Farben aus dem Theme).
 
 ## Alle Apps
 
-Referenz: Raster aus `variante-a-raster.html` (nur Maße).
+Referenz: `alle-apps-scifi.html`.
 
-- Raster mit 6 Spalten, Kacheln 268 × 140, Abstand 24. Alphabetisch.
-- Chips oben filtern nach Kategorie. Zurück führt zum Startbildschirm.
+- Gleicher Rahmen wie der Startbildschirm: Icon-Leiste (Punkt "Alle Apps" aktiv), Kopfzeile mit Reiter "Alle Apps" aktiv, Chips unten.
+- Oben die **Favoriten**: 5 Kacheln nebeneinander (Höhe 172, Abstand 24), rechts Zähler "05 / 12". Die zuletzt gestartete App trägt das Label "ZULETZT".
+- Darunter durch eine feine Linie getrennt **Alle Apps A bis Z**: Raster mit 6 Spalten, Kacheln 140 hoch, Abstand 24, rechts "12 INSTALLIERT".
+- Chips filtern beide Bereiche. Rechts unten die Hinweise "OK starten", "Menü Favorit".
+- Zurück führt zum Startbildschirm.
+
+## Profil bearbeiten
+
+Referenz: `profil-bearbeiten-scifi.html`. Erreichbar über Menü-Taste auf einem Profil in der Profilauswahl und über den Avatar.
+
+- Eigener Vollbild-Bildschirm ohne Icon-Leiste. Oben Eyebrow "PROFIL BEARBEITEN" und der Profilname groß.
+- Links der Avatar (280 × 280) und die Auswahl des Buchstabens (vorgeschlagen aus dem Namen, "…" für jeden anderen).
+- Rechts:
+  - **Name** als Eingabefeld. OK öffnet die Bildschirmtastatur von Android.
+  - **Theme** als drei Karten mit kleiner Vorschau. Das aktive Theme trägt "AKTIV". Themes, die es noch nicht gibt (Mondgarten), sind gestrichelt, mit "BALD" markiert und nicht wählbar.
+  - **Favoriten und Kategorien** öffnet eine Liste aller Apps, in der man pro App Favorit an/aus und die Kategorie setzt.
+  - **Verlauf leeren** mit Anzahl der Einträge.
+  - **Profil löschen** in Warnfarbe, nur nach einer Bestätigungsabfrage. Das letzte Profil kann nicht gelöscht werden.
+- Unten **Speichern** (Haupt-Button) und **Abbrechen**. Zurück verwirft die Änderungen.
+- Ein Theme-Wechsel wird nach dem Speichern sofort sichtbar, ohne Neustart der App.
+- Warnfarbe Sci-Fi: `#FF5F7E`. Gehört als `danger` in beide Theme-Dateien (Phönix: `#FF6A5F`), siehe `docs/THEME-SCHEMA.md`.
 
 ## Was der Launcher kann und was nicht
 

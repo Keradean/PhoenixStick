@@ -2,31 +2,7 @@
   "name": "Phönix",
   "id": "phoenix",
   "default": true,
-  "reference": "1920x1080 px",
   "description": "Standard-Theme im Kino-Look: Tiefschwarz, Kino-Rot, hohe schmale Titel",
-  "color": {
-    "background": "#0B0A0A",
-    "rail": "#0B0A0A",
-    "railBorder": "rgba(255,255,255,0.06)",
-    "heroCard": "#120F0F",
-    "surface": "#151212",
-    "surfaceFocus": "#1C1615",
-    "surfaceRaised": "#1C1817",
-    "borderSubtle": "rgba(255,255,255,0.08)",
-    "borderChip": "rgba(255,255,255,0.14)",
-    "borderStrong": "rgba(255,255,255,0.25)",
-    "textPrimary": "#F2EDEA",
-    "textSecondary": "#D8CFCB",
-    "textTile": "#E4DCD8",
-    "textMuted": "#A39A96",
-    "accent": "#E5322D",
-    "accentSoft": "rgba(229,50,45,0.12)",
-    "ember": "#FF8A70",
-    "focusGlow": "rgba(229,50,45,0.45)",
-    "focusRingButton": "#F2EDEA",
-    "buttonPrimaryBg": "#E5322D",
-    "buttonPrimaryText": "#FFFFFF"
-  },
   "font": {
     "display": {
       "family": "Antonio",
@@ -45,7 +21,40 @@
         700
       ],
       "license": "SIL Open Font License 1.1"
+    },
+    "mono": {
+      "family": "Manrope",
+      "weights": [
+        400,
+        600,
+        700
+      ],
+      "license": "SIL Open Font License 1.1"
     }
+  },
+  "color": {
+    "background": "#0B0A0A",
+    "rail": "#0B0A0A",
+    "railBorder": "rgba(255,255,255,0.06)",
+    "heroCard": "#120F0F",
+    "surface": "#151212",
+    "surfaceRaised": "#1C1817",
+    "surfaceFocus": "#1C1615",
+    "borderSubtle": "rgba(255,255,255,0.08)",
+    "borderChip": "rgba(255,255,255,0.14)",
+    "borderStrong": "rgba(255,255,255,0.25)",
+    "grid": "rgba(255,255,255,0.04)",
+    "textPrimary": "#F2EDEA",
+    "textSecondary": "#D8CFCB",
+    "textTile": "#E4DCD8",
+    "textMuted": "#A39A96",
+    "accent": "#E5322D",
+    "accentSoft": "rgba(229,50,45,0.12)",
+    "focusGlow": "rgba(229,50,45,0.45)",
+    "focusRingButton": "#F2EDEA",
+    "focusBrackets": "#F2EDEA",
+    "buttonPrimaryBg": "#E5322D",
+    "buttonPrimaryText": "#FFFFFF"
   },
   "type": {
     "wordmark": {
@@ -68,7 +77,17 @@
       "font": "display",
       "size": 40,
       "weight": 400,
+      "letterSpacingEm": 0,
+      "uppercase": false,
       "tabular": true
+    },
+    "date": {
+      "font": "body",
+      "size": 22,
+      "weight": 600,
+      "letterSpacingEm": 0.04,
+      "uppercase": false,
+      "color": "textMuted"
     },
     "eyebrow": {
       "font": "body",
@@ -82,14 +101,16 @@
       "font": "display",
       "size": 132,
       "weight": 300,
-      "lineHeight": 0.95,
       "letterSpacingEm": 0.02,
-      "uppercase": true
+      "uppercase": true,
+      "lineHeight": 0.95
     },
     "heroSub": {
       "font": "body",
       "size": 26,
       "weight": 400,
+      "letterSpacingEm": 0,
+      "uppercase": false,
       "color": "textSecondary"
     },
     "heroMeta": {
@@ -103,6 +124,13 @@
     "button": {
       "font": "body",
       "size": 20,
+      "weight": 700,
+      "letterSpacingEm": 0.16,
+      "uppercase": true
+    },
+    "buttonSecondary": {
+      "font": "body",
+      "size": 18,
       "weight": 700,
       "letterSpacingEm": 0.16,
       "uppercase": true
@@ -132,7 +160,9 @@
     "tileLabelFocused": {
       "font": "display",
       "size": 38,
-      "weight": 400
+      "weight": 400,
+      "letterSpacingEm": 0.08,
+      "uppercase": true
     },
     "tag": {
       "font": "body",
@@ -147,6 +177,14 @@
       "weight": 700,
       "letterSpacingEm": 0.16,
       "uppercase": true
+    },
+    "hint": {
+      "font": "body",
+      "size": 18,
+      "weight": 400,
+      "letterSpacingEm": 0,
+      "uppercase": false,
+      "color": "textMuted"
     }
   },
   "shape": {
@@ -158,14 +196,21 @@
     "heroCardRadius": 22,
     "tileRadius": 16,
     "buttonRadius": 12,
+    "buttonChamfer": 12,
     "chipRadius": 30,
-    "avatarRadius": 32
+    "avatarRadius": 32,
+    "iconButtonRadius": 34
   },
   "focus": {
     "tileBorderWidth": 2,
     "tileBorderColor": "accent",
     "tileGlow": "0 0 36 focusGlow",
     "tileScale": 1.05,
+    "brackets": {
+      "size": 22,
+      "width": 3,
+      "offset": 10
+    },
     "buttonRing": {
       "width": 4,
       "color": "focusRingButton"
@@ -186,8 +231,7 @@
     "easing": "ease-out"
   },
   "heroImage": {
-    "type": "vector",
-    "file": "design/referenz/phoenix-hero.svg",
-    "note": "roter Mond, Federbögen, feiner Regen, Glutfunken"
-  }
+    "file": "design/referenz/phoenix-hero.svg"
+  },
+  "backgroundImage": null
 }

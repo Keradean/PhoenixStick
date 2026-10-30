@@ -2,26 +2,7 @@
   "name": "Sci-Fi (Arbeitstitel)",
   "id": "scifi",
   "default": false,
-  "reference": "1920x1080 px",
-  "color": {
-    "background": "#060A11",
-    "surface": "rgba(79,227,255,0.05)",
-    "surfaceRaised": "rgba(79,227,255,0.10)",
-    "surfaceFocus": "rgba(79,227,255,0.14)",
-    "border": "rgba(79,227,255,0.30)",
-    "borderStrong": "rgba(79,227,255,0.50)",
-    "grid": "rgba(79,227,255,0.06)",
-    "divider": "rgba(79,227,255,0.25)",
-    "textPrimary": "#E8F6FF",
-    "textSecondary": "#CFE3F2",
-    "textMeta": "#B5C6D6",
-    "textMuted": "#8FA3B8",
-    "accent": "#4FE3FF",
-    "focusBrackets": "#FFFFFF",
-    "focusGlow": "rgba(79,227,255,0.45)",
-    "buttonPrimaryBg": "#4FE3FF",
-    "buttonPrimaryText": "#04121A"
-  },
+  "description": "Holo-Oberfläche auf einem Raumschiff: Nachtblau, Cyan, feine Linien, eckige Formen, Mono-Schrift",
   "font": {
     "display": {
       "family": "Chakra Petch",
@@ -29,6 +10,14 @@
         500,
         600,
         700
+      ],
+      "license": "SIL Open Font License 1.1"
+    },
+    "body": {
+      "family": "IBM Plex Mono",
+      "weights": [
+        400,
+        500
       ],
       "license": "SIL Open Font License 1.1"
     },
@@ -41,11 +30,53 @@
       "license": "SIL Open Font License 1.1"
     }
   },
+  "color": {
+    "background": "#060A11",
+    "rail": "#07101A",
+    "railBorder": "rgba(79,227,255,0.25)",
+    "heroCard": "rgba(6,10,17,0.72)",
+    "surface": "rgba(79,227,255,0.05)",
+    "surfaceRaised": "rgba(79,227,255,0.10)",
+    "surfaceFocus": "rgba(79,227,255,0.14)",
+    "borderSubtle": "rgba(79,227,255,0.30)",
+    "borderChip": "rgba(79,227,255,0.35)",
+    "borderStrong": "rgba(79,227,255,0.50)",
+    "grid": "rgba(79,227,255,0.06)",
+    "textPrimary": "#E8F6FF",
+    "textSecondary": "#CFE3F2",
+    "textTile": "#CFE3F2",
+    "textMuted": "#8FA3B8",
+    "accent": "#4FE3FF",
+    "accentSoft": "rgba(79,227,255,0.12)",
+    "focusGlow": "rgba(79,227,255,0.45)",
+    "focusRingButton": "#FFFFFF",
+    "focusBrackets": "#FFFFFF",
+    "buttonPrimaryBg": "#4FE3FF",
+    "buttonPrimaryText": "#04121A"
+  },
   "type": {
+    "wordmark": {
+      "font": "display",
+      "size": 36,
+      "weight": 700,
+      "letterSpacingEm": 0.12,
+      "uppercase": true,
+      "suffix": "_",
+      "suffixColor": "accent"
+    },
+    "tab": {
+      "font": "mono",
+      "size": 18,
+      "weight": 500,
+      "letterSpacingEm": 0.2,
+      "uppercase": true
+    },
     "clock": {
       "font": "mono",
       "size": 42,
       "weight": 500,
+      "letterSpacingEm": 0,
+      "uppercase": false,
       "tabular": true
     },
     "date": {
@@ -53,6 +84,7 @@
       "size": 20,
       "weight": 400,
       "letterSpacingEm": 0.12,
+      "uppercase": false,
       "color": "textMuted"
     },
     "eyebrow": {
@@ -61,22 +93,32 @@
       "weight": 400,
       "letterSpacingEm": 0.2,
       "uppercase": true,
-      "prefix": "// ",
-      "color": "accent"
+      "color": "accent",
+      "prefix": "// "
     },
     "heroTitle": {
       "font": "display",
       "size": 112,
       "weight": 700,
       "letterSpacingEm": 0.01,
-      "lineHeight": 1.0,
-      "uppercase": true
+      "uppercase": true,
+      "lineHeight": 1.0
+    },
+    "heroSub": {
+      "font": "mono",
+      "size": 24,
+      "weight": 400,
+      "letterSpacingEm": 0,
+      "uppercase": false,
+      "color": "textSecondary"
     },
     "heroMeta": {
       "font": "mono",
       "size": 22,
       "weight": 400,
-      "color": "textMeta"
+      "letterSpacingEm": 0,
+      "uppercase": false,
+      "color": "textSecondary"
     },
     "button": {
       "font": "display",
@@ -100,6 +142,14 @@
       "uppercase": true,
       "color": "textMuted"
     },
+    "viewAll": {
+      "font": "mono",
+      "size": 16,
+      "weight": 500,
+      "letterSpacingEm": 0.2,
+      "uppercase": true,
+      "color": "textMuted"
+    },
     "tileLabel": {
       "font": "display",
       "size": 26,
@@ -110,63 +160,62 @@
     "tileLabelFocused": {
       "font": "display",
       "size": 30,
-      "weight": 700
+      "weight": 700,
+      "letterSpacingEm": 0.04,
+      "uppercase": true
+    },
+    "tag": {
+      "font": "mono",
+      "size": 13,
+      "weight": 500,
+      "letterSpacingEm": 0.16,
+      "uppercase": true
+    },
+    "chip": {
+      "font": "mono",
+      "size": 16,
+      "weight": 500,
+      "letterSpacingEm": 0.2,
+      "uppercase": true
     },
     "hint": {
       "font": "mono",
       "size": 18,
-      "weight": 400
+      "weight": 400,
+      "letterSpacingEm": 0,
+      "uppercase": false,
+      "color": "textMuted"
     }
   },
-  "layout": {
-    "safeArea": {
-      "left": 96,
-      "right": 96,
-      "top": 52,
-      "bottom": 40
+  "shape": {
+    "railItemRadius": 4,
+    "railActiveIndicator": {
+      "width": 3,
+      "height": 44
     },
-    "heroHeight": 704,
-    "tile": {
-      "width": 340,
-      "height": 190,
-      "radius": 4,
-      "gap": 28,
-      "borderWidth": 1
+    "heroCardRadius": 4,
+    "tileRadius": 4,
+    "buttonRadius": 2,
+    "buttonChamfer": 16,
+    "chipRadius": 2,
+    "avatarRadius": 4,
+    "iconButtonRadius": 4
+  },
+  "focus": {
+    "tileBorderWidth": 2,
+    "tileBorderColor": "accent",
+    "tileGlow": "0 0 36 focusGlow",
+    "tileScale": 1.06,
+    "brackets": {
+      "size": 22,
+      "width": 3,
+      "offset": 10
     },
-    "tileFocused": {
-      "scale": 1.06,
-      "borderWidth": 2,
-      "borderColor": "accent",
-      "glow": "0 0 36 focusGlow",
-      "brackets": {
-        "size": 22,
-        "width": 3,
-        "offset": 10
-      }
+    "buttonRing": {
+      "width": 2,
+      "color": "focusRingButton"
     },
-    "buttonPrimary": {
-      "height": 68,
-      "paddingX": 44,
-      "chamfer": 16
-    },
-    "buttonSecondary": {
-      "height": 68,
-      "paddingX": 36,
-      "borderWidth": 1
-    },
-    "iconButton": {
-      "size": 60,
-      "radius": 4
-    },
-    "avatar": {
-      "size": 64,
-      "radius": 4,
-      "borderWidth": 2
-    },
-    "icon": {
-      "size": 28,
-      "strokeWidth": 1.8
-    }
+    "buttonGlow": "0 0 32 rgba(79,227,255,0.55)"
   },
   "style": {
     "tileShape": "square",
@@ -179,12 +228,12 @@
     "focusMs": 150,
     "heroCrossfadeMs": 200,
     "maxMs": 300,
-    "easing": "ease-out",
-    "note": "Radar-Bogen darf sich langsam drehen (eine Umdrehung in 20 s), nur wenn es auf dem Stick flüssig läuft"
+    "easing": "ease-out"
   },
   "heroImage": {
-    "type": "vector",
-    "file": "design/referenz/scifi-hintergrund.svg",
-    "note": "Raster über den ganzen Bildschirm, Radar-Kreise rechts oben (Mittelpunkt 1440/360), Trennlinie bei y=704"
+    "file": "design/referenz/scifi-hero.svg"
+  },
+  "backgroundImage": {
+    "file": "design/referenz/scifi-raster.svg"
   }
 }

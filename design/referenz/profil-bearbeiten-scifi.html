@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Profil bearbeiten Sci-Fi</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060A11}
+a{color:#4FE3FF}a:hover{color:#A8F1FF}
+</style>
+</helmet>
+<div style="position: relative; width: 1920px; height: 1080px; box-sizing: border-box; padding: 64px 96px 56px; background: #060A11; color: #E8F6FF; font-family: 'Chakra Petch', system-ui, sans-serif; overflow: hidden; display: flex; flex-direction: column; gap: 44px">
+
+  <svg aria-hidden="true" width="1920" height="1080" viewBox="0 0 1920 1080" style="position: absolute; inset: 0">
+    <defs>
+      <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+        <path d="M48 0H0V48" fill="none" stroke="#4FE3FF" stroke-opacity="0.06" stroke-width="1"></path>
+      </pattern>
+    </defs>
+    <rect width="1920" height="1080" fill="url(#grid)"></rect>
+  </svg>
+
+  <header style="position: relative; display: flex; align-items: flex-end; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 20px; color: {{accent}}; letter-spacing: 0.2em">// PROFIL BEARBEITEN</p>
+      <h1 style="margin: 0; font-size: 72px; font-weight: 700; letter-spacing: 0.04em; line-height: 1; text-transform: uppercase">Dennis</h1>
+    </div>
+    <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 42px; font-weight: 500; font-variant-numeric: tabular-nums">20:15</p>
+  </header>
+
+  <div style="position: relative; display: flex; gap: 96px; flex: 1 1 auto; min-height: 0">
+
+    <section aria-label="Avatar" style="width: 360px; display: flex; flex-direction: column; gap: 28px">
+      <div style="width: 280px; height: 280px; border: 2px solid {{accent}}; background: rgba(79,227,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 150px; font-weight: 700; color: #E8F6FF">D</div>
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8FA3B8; letter-spacing: 0.2em">BUCHSTABE</p>
+        <div style="display: flex; gap: 12px">
+          <button style="width: 60px; height: 60px; border-radius: 4px; border: 2px solid {{accent}}; background: rgba(79,227,255,0.14); color: #FFFFFF; font-family: inherit; font-size: 26px; font-weight: 700">D</button>
+          <button style="width: 60px; height: 60px; border-radius: 4px; border: 1px solid rgba(79,227,255,0.3); background: rgba(79,227,255,0.05); color: #CFE3F2; font-family: inherit; font-size: 26px; font-weight: 600">E</button>
+          <button style="width: 60px; height: 60px; border-radius: 4px; border: 1px solid rgba(79,227,255,0.3); background: rgba(79,227,255,0.05); color: #CFE3F2; font-family: inherit; font-size: 26px; font-weight: 600">N</button>
+          <button aria-label="Anderen Buchstaben wählen" style="width: 60px; height: 60px; border-radius: 4px; border: 1px dashed rgba(79,227,255,0.35); background: transparent; color: #8FA3B8; font-family: 'IBM Plex Mono', monospace; font-size: 22px">…</button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Einstellungen des Profils" style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 40px">
+
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <label for="profilname" style="font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8FA3B8; letter-spacing: 0.2em">NAME</label>
+        <div style="position: relative; width: 760px">
+          <input id="profilname" type="text" value="Dennis" style="box-sizing: border-box; width: 760px; height: 80px; padding: 0 28px; border-radius: 4px; border: 2px solid {{accent}}; background: rgba(79,227,255,0.1); color: #FFFFFF; font-family: 'Chakra Petch', sans-serif; font-size: 34px; font-weight: 600; box-shadow: 0 0 36px rgba(79,227,255,0.4)">
+          <span aria-hidden="true" style="position: absolute; top: -10px; left: -10px; width: 22px; height: 22px; border-top: 3px solid #FFFFFF; border-left: 3px solid #FFFFFF"></span>
+          <span aria-hidden="true" style="position: absolute; top: -10px; right: -10px; width: 22px; height: 22px; border-top: 3px solid #FFFFFF; border-right: 3px solid #FFFFFF"></span>
+          <span aria-hidden="true" style="position: absolute; bottom: -10px; left: -10px; width: 22px; height: 22px; border-bottom: 3px solid #FFFFFF; border-left: 3px solid #FFFFFF"></span>
+          <span aria-hidden="true" style="position: absolute; bottom: -10px; right: -10px; width: 22px; height: 22px; border-bottom: 3px solid #FFFFFF; border-right: 3px solid #FFFFFF"></span>
+        </div>
+        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8FA3B8">OK öffnet die Bildschirmtastatur</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8FA3B8; letter-spacing: 0.2em">THEME</p>
+        <div style="display: flex; gap: 24px">
+          <button style="position: relative; width: 300px; height: 150px; border-radius: 4px; border: 2px solid {{accent}}; background: #07101A; color: #E8F6FF; font-family: inherit; padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start">
+            <span aria-hidden="true" style="position: absolute; top: 20px; left: 20px; right: 20px; height: 54px; border: 1px solid rgba(79,227,255,0.35); background: rgba(79,227,255,0.06)"></span>
+            <span aria-hidden="true" style="position: absolute; top: 34px; left: 34px; width: 90px; height: 8px; background: #4FE3FF"></span>
+            <span style="padding: 0 20px 16px; font-size: 22px; font-weight: 700; letter-spacing: 0.06em">SCI-FI</span>
+            <span style="position: absolute; top: 10px; right: 10px; padding: 3px 8px; background: {{accent}}; color: #04121A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em">AKTIV</span>
+          </button>
+          <button style="position: relative; width: 300px; height: 150px; border-radius: 4px; border: 1px solid rgba(79,227,255,0.3); background: #0B0A0A; color: #F2EDEA; font-family: inherit; padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start">
+            <span aria-hidden="true" style="position: absolute; top: 20px; left: 20px; right: 20px; height: 54px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: #120F0F"></span>
+            <span aria-hidden="true" style="position: absolute; top: 34px; left: 34px; width: 90px; height: 8px; border-radius: 4px; background: #E5322D"></span>
+            <span style="padding: 0 20px 16px; font-size: 22px; font-weight: 600; letter-spacing: 0.06em">PHÖNIX</span>
+          </button>
+          <button style="position: relative; width: 300px; height: 150px; border-radius: 4px; border: 1px dashed rgba(79,227,255,0.3); background: #120B1F; color: #8FA3B8; font-family: inherit; padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start">
+            <span aria-hidden="true" style="position: absolute; top: 20px; left: 20px; right: 20px; height: 54px; border-radius: 14px; background: #221636"></span>
+            <span aria-hidden="true" style="position: absolute; top: 34px; left: 34px; width: 90px; height: 8px; border-radius: 4px; background: #C8B6FF; opacity: 0.6"></span>
+            <span style="padding: 0 20px 16px; font-size: 22px; font-weight: 600; letter-spacing: 0.06em">MONDGARTEN <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.16em">· BALD</span></span>
+          </button>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(79,227,255,0.25)">
+        <a href="#" style="height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; border-bottom: 1px solid rgba(79,227,255,0.12); color: #E8F6FF; text-decoration: none; font-size: 24px; font-weight: 600; letter-spacing: 0.04em">FAVORITEN UND KATEGORIEN <span style="color: {{accent}}; font-family: 'IBM Plex Mono', monospace; font-size: 20px">›</span></a>
+        <a href="#" style="height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; border-bottom: 1px solid rgba(79,227,255,0.12); color: #E8F6FF; text-decoration: none; font-size: 24px; font-weight: 600; letter-spacing: 0.04em">VERLAUF "ZULETZT GEÖFFNET" LEEREN <span style="color: #8FA3B8; font-family: 'IBM Plex Mono', monospace; font-size: 16px">3 EINTRÄGE</span></a>
+        <a href="#" style="height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; color: #FF5F7E; text-decoration: none; font-size: 24px; font-weight: 600; letter-spacing: 0.04em">PROFIL LÖSCHEN <span style="font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8FA3B8">MIT BESTÄTIGUNG</span></a>
+      </div>
+    </section>
+  </div>
+
+  <footer style="position: relative; display: flex; align-items: center; justify-content: space-between">
+    <div style="display: flex; gap: 20px">
+      <button style="height: 68px; padding: 0 48px; border: none; background: {{accent}}; color: #04121A; font-family: inherit; font-size: 26px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px)">Speichern</button>
+      <button style="height: 68px; padding: 0 36px; border-radius: 2px; border: 1px solid rgba(79,227,255,0.5); background: rgba(6,10,17,0.6); color: #E8F6FF; font-family: inherit; font-size: 22px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Abbrechen</button>
+    </div>
+    <p style="margin: 0; display: flex; gap: 32px; font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: #8FA3B8">
+      <span><strong style="color: #E8F6FF">ZURÜCK</strong> ohne Speichern</span>
+    </p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#4FE3FF","options":["#4FE3FF","#7CFFB2","#FF5F7E","#B48CFF"]},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#4FE3FF' };
+  }
+}
+</script>
+</body>
+</html>
