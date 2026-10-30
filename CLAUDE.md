@@ -179,4 +179,4 @@ Nur lesen, um Paketnamen und Erfahrungen nachzuschlagen. Keinen Code übernehmen
 3. `--apply`, Änderungsprotokoll, `restore`, `check`
 4. `privacy` für Telemetrie-Settings
 5. DNS-Filter für Amazon-Tracking auf dem Homeserver (AdGuard Home oder Pi-hole im Docker auf Unraid). Vorsicht: zu aggressive Listen legen Prime Video, Appstore und Updates lahm
-6. Optional: eigener Launcher als Android-App. Ersetzt endgültig das Werbebanner oben im Amazon-Startbildschirm, das zu `com.amazon.tv.launcher` gehört und deshalb nicht per Paket entfernt wird. Design-Vorgaben: `docs/DESIGN.md` und `design/tokens/`, erster Schritt (Theme Sci-Fi) in `goals/06_launcher-erster-schritt.md`
+6. Eigener Launcher: ausgelagert in ein eigenes Projekt, `/mnt/storage/Claude/PhoenixStickLauncher`. Dieses Projekt bleibt beim Detox
