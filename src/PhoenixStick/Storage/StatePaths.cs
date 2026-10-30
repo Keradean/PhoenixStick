@@ -9,6 +9,8 @@ public class StatePaths(string root)
 
     public string SnapshotsDir => Path.Combine(Root, "snapshots");
 
+    public string ChangesFile => Path.Combine(Root, "changes.json");
+
     public static StatePaths Default() => new(Path.Combine(Directory.GetCurrentDirectory(), "state"));
 
     public static string Timestamp(DateTime time) => time.ToString("yyyy-MM-dd_HH-mm-ss");

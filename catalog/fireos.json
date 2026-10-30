@@ -33,11 +33,12 @@
   },
   {
     "package": "com.amazon.sneakpeek",
-    "label": "Automatische Trailer",
-    "category": "safe",
-    "reason": "Spielt Werbung und Trailer im Startbildschirm automatisch ab",
-    "breaks": "",
-    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+    "label": "Vorschau und Trailer",
+    "category": "optional",
+    "group": "preview",
+    "reason": "Spielt Vorschauen, Trailer und Werbung im Startbildschirm automatisch ab",
+    "breaks": "Vorschau im Startbildschirm, z. B. bei Netflix (am Gerät getestet, Dennis will sie behalten)",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml, eigener Test am Gerät"
   },
   {
     "package": "com.amazon.systemnotices",

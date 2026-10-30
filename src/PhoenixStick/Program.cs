@@ -11,6 +11,9 @@ app.Configure(config =>
     config.AddCommand<InventoryCommand>("inventory");
     config.AddCommand<SnapshotCommand>("snapshot");
     config.AddCommand<DebloatCommand>("debloat");
+    config.AddCommand<RestoreCommand>("restore");
+    config.AddCommand<CheckCommand>("check");
+    config.AddCommand<PerfCommand>("perf");
 
     config.SetExceptionHandler((ex, _) =>
     {

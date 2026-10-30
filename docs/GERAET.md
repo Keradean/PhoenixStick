@@ -26,7 +26,9 @@ Wird bei der Vorbereitung von Dennis ausgefüllt und in Goal 01 von Claude Code 
 | Frage | Antwort |
 | --- | --- |
 | Alexa / Sprachsuche nutzen | wird erst später genutzt. Das Tool muss mit und ohne Alexa funktionieren. Alexa-Pakete kommen in eine eigene Gruppe in der Kategorie `optional` und werden vorerst nicht deaktiviert |
-| Prime Video nutzen | ja, muss voll funktionieren, inklusive aller Abhängigkeiten (z. B. Amazons Push-Dienst). Werbung im Startbildschirm, automatische Trailer und Tracking dürfen weg |
+| Prime Video nutzen | ja, muss voll funktionieren, inklusive aller Abhängigkeiten (z. B. Amazons Push-Dienst). Werbung im Startbildschirm und Tracking dürfen weg |
+| Vorschau im Startbildschirm | muss bleiben (z. B. Netflix-Vorschau). Werbung soll trotzdem weg: über DNS-Filter (Schritt 5) oder eigenen Code, nicht durch Abschalten von `com.amazon.sneakpeek` |
+| Ziel Performance | Stick soll flüssiger laufen. Vorher und nachher messen, nicht nach Gefühl |
 | Amazon-Systemupdates weiter erlauben | ja (Sicherheitsupdates). OTA-Pakete kommen auf die Never-touch-Liste. Nach Updates prüft `check`, was wieder aktiv ist |
 | Apps, die auf jeden Fall laufen müssen | alle installierten Drittanbieter-Apps (`pm list packages -3`). Sie werden nie angefasst. Macht eine App Probleme, wird das vorher mit Dennis besprochen |
 | Sonstiges, das nicht kaputt gehen darf | HDMI-CEC (TV an/aus und Lautstärke über die Stick-Fernbedienung) und Bluetooth (Fernbedienung des 4K-Sticks, Kopfhörer, Lautsprecher, Gamepads): alles zu Bluetooth-Stack und Fernbedienungs-Pairing ist never touch. Dazu WLAN, Tastatur, HDMI-Eingänge. Bildschirmspiegelung (Miracast) kommt in `optional` und bleibt vorerst aktiv |
@@ -36,5 +38,6 @@ Wird bei der Vorbereitung von Dennis ausgefüllt und in Goal 01 von Claude Code 
 - Drittanbieter-Apps im Ausgangszustand: Netflix, Disney+, YouTube (`com.amazon.firetv.youtube`), HBO, Crunchyroll, Twitch, ZDF, ARD, 7TV, DMAX, Toggo, `com.amazon.spiderpork`
 - `com.amazon.spiderpork` ist als Drittanbieter-App installiert, Zweck noch unklar
 - Softwareversion: Im Info-Menü notiert als `N56711`, `getprop` liefert `NS6711` (`ro.build.display.id`). Vermutlich ein S, das wie eine 5 aussieht
+- 30.10.2026: Preset `safe` angewendet (25 Pakete), nach Neustart alles in Ordnung, `check` ohne Befund. Einzige sichtbare Änderung: Die Vorschau im Startbildschirm, z. B. bei Netflix, fehlte. Ursache `com.amazon.sneakpeek`, es spielt Vorschau und Werbung ab. Im Katalog nach `optional`, Gruppe `preview` verschoben und wieder aktiviert. Danach geht die Vorschau bei allen Apps außer Netflix. Offen, Dennis: nicht dringend. Verdacht: Cache des Startbildschirms oder `hybridadidservice`/`privacypassservice`
 - `limit_ad_tracking` liegt auf diesem Gerät in der Tabelle `secure`, nicht in `global` wie in der Kandidatenliste in `CLAUDE.md`. Daneben gibt es `amz_limit_ad_tracking` und `non_amz_limit_ad_tracking`. Wichtig für Goal 04
 

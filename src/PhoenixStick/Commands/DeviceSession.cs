@@ -9,12 +9,12 @@ namespace PhoenixStick.Commands;
 public static class DeviceSession
 {
     /// <returns>Den Client, wenn das Gerät bereit ist, sonst null (Fehler ist dann schon ausgegeben).</returns>
-    public static async Task<IAdbClient?> ConnectAsync(GlobalSettings settings, CancellationToken ct)
+    /// <param name="applyEnabled">Nur mit true lässt der Client schreibende Befehle durch (--apply).</param>
+    public static async Task<IAdbClient?> ConnectAsync(GlobalSettings settings, CancellationToken ct, bool applyEnabled = false)
     {
         var config = ConfigLoader.Load(Path.Combine(Directory.GetCurrentDirectory(), ConfigLoader.FileName), settings.Host);
 
-        // In diesem Stand gibt es noch kein --apply, schreibende Befehle sind also immer gesperrt
-        var adb = new AdbClient(config.Serial, applyEnabled: false);
+        var adb = new AdbClient(config.Serial, applyEnabled);
 
         var connection = await new DeviceConnector(adb).ConnectAsync(ct);
         if (connection.State == DeviceState.Device)
