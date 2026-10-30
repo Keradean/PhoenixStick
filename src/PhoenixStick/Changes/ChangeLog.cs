@@ -7,8 +7,11 @@ public enum ChangeAction
 {
     Disable,
     Enable,
+    RestrictBackground,
+    AllowBackground,
 }
 
+/// <summary>Bei der Hintergrundsperre steht Enabled für "darf im Hintergrund laufen", Disabled für "gesperrt".</summary>
 public enum PackageState
 {
     Enabled,
@@ -80,13 +83,20 @@ public class ChangeLog
     /// Pakete, die das Tool deaktiviert hat und seitdem nicht wieder aktiviert hat.
     /// Pakete, die schon vorher aus waren, zählen nie dazu.
     /// </summary>
-    public IReadOnlyList<string> PackagesDisabledByTool()
+    public IReadOnlyList<string> PackagesDisabledByTool() => ChangedByTool(ChangeAction.Disable, ChangeAction.Enable);
+
+    /// <summary>Apps, die das Tool im Hintergrund gesperrt und seitdem nicht wieder freigegeben hat.</summary>
+    public IReadOnlyList<string> PackagesRestrictedByTool() =>
+        ChangedByTool(ChangeAction.RestrictBackground, ChangeAction.AllowBackground);
+
+    private IReadOnlyList<string> ChangedByTool(ChangeAction apply, ChangeAction undo)
     {
         var result = new List<string>();
-        foreach (var group in _entries.Where(e => e.Result == ChangeResult.Success).GroupBy(e => e.Package))
+        var relevant = _entries.Where(e => e.Result == ChangeResult.Success && (e.Action == apply || e.Action == undo));
+        foreach (var group in relevant.GroupBy(e => e.Package))
         {
             var last = group.Last();
-            if (last.Action == ChangeAction.Disable && last.StateBefore == PackageState.Enabled)
+            if (last.Action == apply && last.StateBefore == PackageState.Enabled)
                 result.Add(group.Key);
         }
         return result.Order(StringComparer.Ordinal).ToList();

@@ -14,6 +14,7 @@ app.Configure(config =>
     config.AddCommand<RestoreCommand>("restore");
     config.AddCommand<CheckCommand>("check");
     config.AddCommand<PerfCommand>("perf");
+    config.AddCommand<BackgroundCommand>("background");
 
     config.SetExceptionHandler((ex, _) =>
     {

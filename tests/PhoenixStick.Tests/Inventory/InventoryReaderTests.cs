@@ -45,7 +45,8 @@ public class InventoryReaderTests
         var fake = CreateFake()
             .Respond("settings list global", "adb_enabled=1\n")
             .Respond("settings list secure", "limit_ad_tracking=0\n")
-            .Respond("settings list system", "screen_brightness=102\n");
+            .Respond("settings list system", "screen_brightness=102\n")
+            .Respond("dumpsys appops", "  Uid u0a216:\n    Package com.netflix.ninja:\n      RUN_IN_BACKGROUND: mode=0\n");
         var root = Path.Combine(Path.GetTempPath(), "phoenixstick-tests", Guid.NewGuid().ToString());
 
         try
@@ -55,6 +56,7 @@ public class InventoryReaderTests
             Assert.Equal(Path.Combine(root, "snapshots", "2026-10-30_12-00-00"), summary.Directory);
             Assert.True(File.Exists(Path.Combine(summary.Directory, "packages.json")));
             Assert.Contains("limit_ad_tracking", File.ReadAllText(Path.Combine(summary.Directory, "settings_secure.json")));
+            Assert.True(File.Exists(Path.Combine(summary.Directory, "appops.txt")));
             Assert.Empty(fake.WriteCalls);
         }
         finally

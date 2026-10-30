@@ -16,6 +16,9 @@ public class SimulatedDevice(bool applyEnabled = true) : IAdbClient
 
     public HashSet<string> ProtectedPackages { get; } = [];
 
+    /// <summary>Apps mit RUN_IN_BACKGROUND = ignore.</summary>
+    public HashSet<string> BackgroundRestricted { get; } = [];
+
     /// <summary>Pakete, bei denen das Gerät einen unerwarteten Fehler meldet.</summary>
     public HashSet<string> FailingPackages { get; } = [];
 
@@ -39,6 +42,12 @@ public class SimulatedDevice(bool applyEnabled = true) : IAdbClient
         if (command == "pm list packages -d")
             return Ok(string.Concat(Disabled.Select(p => $"package:{p}\n")));
 
+        if (command == "dumpsys appops")
+        {
+            var blocks = BackgroundRestricted.Select(p => $"  Uid u0a1:\n    Package {p}:\n      RUN_IN_BACKGROUND: mode=1; time=+1m ago\n");
+            return Ok("Current AppOps Service state:\n" + string.Concat(blocks));
+        }
+
         throw new InvalidOperationException($"Nicht simuliert: {command}");
     }
 
@@ -57,6 +66,16 @@ public class SimulatedDevice(bool applyEnabled = true) : IAdbClient
             return Task.FromResult(new AdbResult(255, "", "Error: java.lang.IllegalStateException: Unerwartet"));
         if (SilentlyIgnored.Contains(package))
             return Ok($"Package {package} new state: disabled-user\n");
+
+        if (command.StartsWith("appops set", StringComparison.Ordinal))
+        {
+            var target = command.Split(' ')[2];
+            if (command.EndsWith("ignore", StringComparison.Ordinal))
+                BackgroundRestricted.Add(target);
+            else
+                BackgroundRestricted.Remove(target);
+            return Ok("");
+        }
 
         if (command.StartsWith("pm disable-user", StringComparison.Ordinal))
         {

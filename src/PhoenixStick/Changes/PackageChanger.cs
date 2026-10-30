@@ -1,6 +1,5 @@
 using PhoenixStick.Adb;
 using PhoenixStick.Debloat;
-using PhoenixStick.Parsing;
 
 namespace PhoenixStick.Changes;
 
@@ -26,8 +25,10 @@ public class PackageChanger(IAdbClient adb, ChangeLog log, Func<DateTime>? clock
 
         foreach (var package in packages)
         {
-            var before = await GetStateAsync(package, ct);
-            var target = action == ChangeAction.Disable ? PackageState.Disabled : PackageState.Enabled;
+            var before = await GetStateAsync(package, action, ct);
+            var target = action is ChangeAction.Disable or ChangeAction.RestrictBackground
+                ? PackageState.Disabled
+                : PackageState.Enabled;
             if (before == target)
             {
                 // Nichts zu tun, wird auch nicht protokolliert
@@ -59,7 +60,14 @@ public class PackageChanger(IAdbClient adb, ChangeLog log, Func<DateTime>? clock
     private async Task<ChangeEntry> ChangeAsync(
         string package, ChangeAction action, PackageState before, PackageState target, CancellationToken ct)
     {
-        var command = action == ChangeAction.Disable ? PackageCommands.Disable(package) : PackageCommands.Enable(package);
+        var command = action switch
+        {
+            ChangeAction.Disable => PackageCommands.Disable(package),
+            ChangeAction.Enable => PackageCommands.Enable(package),
+            ChangeAction.RestrictBackground => PackageCommands.RestrictBackground(package),
+            ChangeAction.AllowBackground => PackageCommands.AllowBackground(package),
+            _ => throw new ArgumentOutOfRangeException(nameof(action)),
+        };
 
         string message;
         try
@@ -73,7 +81,7 @@ public class PackageChanger(IAdbClient adb, ChangeLog log, Func<DateTime>? clock
             if (!result.Success)
                 return Entry(package, action, before, ChangeResult.Failed, message);
 
-            var after = await GetStateAsync(package, ct);
+            var after = await GetStateAsync(package, action, ct);
             if (after != target)
                 return Entry(package, action, before, ChangeResult.Failed, $"{message}\nZustand danach: {after}");
         }
@@ -88,13 +96,15 @@ public class PackageChanger(IAdbClient adb, ChangeLog log, Func<DateTime>? clock
     private ChangeEntry Entry(string package, ChangeAction action, PackageState before, ChangeResult result, string message) =>
         new(_clock(), package, action, before, result, message);
 
-    private async Task<PackageState> GetStateAsync(string package, CancellationToken ct)
+    private async Task<PackageState> GetStateAsync(string package, ChangeAction action, CancellationToken ct)
     {
-        const string command = "pm list packages -d";
-        var result = await _adb.ShellReadAsync(command, ct);
-        if (!result.Success)
-            throw new AdbCommandException(command, result);
+        if (action is ChangeAction.RestrictBackground or ChangeAction.AllowBackground)
+        {
+            var restricted = await DeviceStateReader.ReadBackgroundRestrictedAsync(_adb, ct);
+            return restricted.Contains(package) ? PackageState.Disabled : PackageState.Enabled;
+        }
 
-        return PackageListParser.Parse(result.StdOut).Contains(package) ? PackageState.Disabled : PackageState.Enabled;
+        var disabled = await DeviceStateReader.ReadDisabledAsync(_adb, ct);
+        return disabled.Contains(package) ? PackageState.Disabled : PackageState.Enabled;
     }
 }

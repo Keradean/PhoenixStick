@@ -46,8 +46,8 @@ public sealed class ToolStateTests : IDisposable
         var log = ChangeLog.Load(_logPath);
         log.Append(Entry("com.amazon.byTool", ChangeAction.Disable, PackageState.Enabled));
 
-        var report = ToolState.Compare(log, device.Disabled);
-        await new PackageChanger(device, log).RunAsync(ChangeAction.Enable, report.StillDisabled);
+        var report = ToolState.ComparePackages(log, device.Disabled);
+        await new PackageChanger(device, log).RunAsync(ChangeAction.Enable, report.StillApplied);
 
         Assert.Equal(["pm enable --user 0 com.amazon.byTool"], device.WriteCalls);
         Assert.Equal(["com.amazon.wasOffBefore"], device.Disabled);
@@ -62,10 +62,10 @@ public sealed class ToolStateTests : IDisposable
         log.Append(Entry("com.amazon.b", ChangeAction.Disable, PackageState.Enabled));
 
         // Nach einem Update ist nur noch b aus
-        var report = ToolState.Compare(log, new HashSet<string> { "com.amazon.b" });
+        var report = ToolState.ComparePackages(log, new HashSet<string> { "com.amazon.b" });
 
-        Assert.Equal(["com.amazon.a"], report.ActiveAgain);
-        Assert.Equal(["com.amazon.b"], report.StillDisabled);
+        Assert.Equal(["com.amazon.a"], report.Reverted);
+        Assert.Equal(["com.amazon.b"], report.StillApplied);
     }
 
     [Fact]
@@ -77,7 +77,7 @@ public sealed class ToolStateTests : IDisposable
         var log = ChangeLog.Load(_logPath);
         log.Append(Entry("com.amazon.a", ChangeAction.Disable, PackageState.Enabled));
 
-        ToolState.Compare(log, device.Disabled);
+        ToolState.ComparePackages(log, device.Disabled);
 
         Assert.Empty(device.WriteCalls);
     }

@@ -31,6 +31,12 @@ public class SnapshotWriter(IAdbClient adb, StatePaths paths)
             settings[table] = SettingsParser.Parse(result.StdOut);
         }
 
+        // Rohausgabe reicht hier, sie dient nur zum Nachschauen
+        const string appOpsCommand = "dumpsys appops";
+        var appOps = await _adb.ShellReadAsync(appOpsCommand, ct);
+        if (!appOps.Success)
+            throw new AdbCommandException(appOpsCommand, appOps);
+
         var dir = Path.Combine(_paths.SnapshotsDir, StatePaths.Timestamp(now));
         Directory.CreateDirectory(dir);
 
@@ -44,6 +50,8 @@ public class SnapshotWriter(IAdbClient adb, StatePaths paths)
             await File.WriteAllTextAsync(
                 Path.Combine(dir, $"settings_{table}.json"), JsonSerializer.Serialize(sorted, JsonDefaults.Options), ct);
         }
+
+        await File.WriteAllTextAsync(Path.Combine(dir, "appops.txt"), appOps.StdOut, ct);
 
         return new SnapshotSummary(dir, packages.Count, settings.ToDictionary(s => s.Key, s => s.Value.Count));
     }

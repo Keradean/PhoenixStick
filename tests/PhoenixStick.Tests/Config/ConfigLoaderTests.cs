@@ -25,6 +25,23 @@ public class ConfigLoaderTests : IDisposable
     }
 
     [Fact]
+    public void Load_ReadsKeepList_AlsoWithHostOverride()
+    {
+        File.WriteAllText(_path, """{ "host": "192.168.178.26", "port": 5555, "keep": ["com.amazon.gamehub"] }""");
+
+        Assert.Equal(["com.amazon.gamehub"], ConfigLoader.Load(_path, null).KeepPackages);
+        Assert.Equal(["com.amazon.gamehub"], ConfigLoader.Load(_path, "10.0.0.5").KeepPackages);
+    }
+
+    [Fact]
+    public void Load_WithoutKeep_IsEmpty()
+    {
+        File.WriteAllText(_path, """{ "host": "192.168.178.26" }""");
+
+        Assert.Empty(ConfigLoader.Load(_path, null).KeepPackages);
+    }
+
+    [Fact]
     public void Load_HostOverrideWithPort()
     {
         Assert.Equal("10.0.0.5:5557", ConfigLoader.Load(_path, "10.0.0.5:5557").Serial);

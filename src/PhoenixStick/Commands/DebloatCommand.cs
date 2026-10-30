@@ -45,7 +45,8 @@ public class DebloatCommand : AsyncCommand<DebloatSettings>
             return 1;
 
         var installed = await new InventoryReader(adb).ReadAsync(ct);
-        var plan = DebloatPlanner.Plan(catalog, installed, settings.Preset, settings.Include);
+        var keep = DeviceSession.LoadConfig(settings).KeepPackages;
+        var plan = DebloatPlanner.Plan(catalog, installed, settings.Preset, settings.Include, keep);
 
         if (settings.Package is not null)
         {

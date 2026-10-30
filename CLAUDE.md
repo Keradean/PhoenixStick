@@ -27,6 +27,7 @@ Diese Regeln gehen vor allem anderen. Der Stick wird im Alltag genutzt und muss 
 1. Änderungen am Gerät laufen nur über unser Tool, nie über direkte adb-Befehle von dir. Direkt darfst du nur lesen (`getprop`, `pm list`, `settings get/list`, `dumpsys`).
 2. Das Tool macht immer erst einen Probelauf und zeigt, was es tun würde. Geändert wird nur mit `--apply`. Schreibende adb-Befehle laufen im Code über genau eine Methode, die ohne `--apply` eine Exception wirft. Dafür gibt es einen Test.
 3. Pakete werden ausschließlich mit `pm disable-user --user 0 <paket>` deaktiviert und mit `pm enable --user 0 <paket>` wieder aktiviert. Kein `pm uninstall`, kein `pm clear`, kein Root, nichts mit Recovery oder Flashen.
+   Ausnahme (freigegeben am 30.10.2026): Drittanbieter-Apps dürfen über den Befehl `background` mit `appops set <app> RUN_IN_BACKGROUND ignore` am Autostart und Hintergrundlauf gehindert werden, zurück mit `allow`. Deaktiviert werden sie weiterhin nie.
 4. Vor jedem `--apply` speichert das Tool einen Snapshot (Paketliste und Settings). Jede einzelne Änderung kommt ins Änderungsprotokoll, damit `restore` sie rückgängig machen kann.
 5. Die Never-touch-Liste wird beim Laden aus allen Presets entfernt, egal was im Katalog steht. Dafür gibt es einen Test.
 6. Pakete, die nicht im Katalog stehen, werden nie angefasst.
@@ -63,7 +64,7 @@ Aus anderen Projekten zum gleichen Thema:
 Der Stick läuft mit Fire OS 6.7, das basiert auf Android 7.1. Das heißt:
 
 - Paketlisten aus anderen Projekten gelten oft nur für Fire OS 7 oder 8. dumbtv hat eigene Listen für Fire OS 6 unter `data/fireos6/`, die sind die erste Referenz.
-- `appops`-Regeln wie `RUN_ANY_IN_BACKGROUND` gibt es erst ab Android 9, hier also nicht.
+- `appops`-Regeln wie `RUN_ANY_IN_BACKGROUND` gibt es erst ab Android 9, hier also nicht. `RUN_IN_BACKGROUND` gibt es auf diesem Gerät aber (laut `dumpsys appops`).
 - Der Hinweis zum Animationsfaktor betrifft Fire OS 8. Unter 1 wird trotzdem nichts gesetzt.
 - Für einen eigenen Launcher später: Auf 6.7 lässt Amazon den Weg über einen Bedienungshilfe-Dienst (Accessibility Service) nicht zu. dumbtv nutzt dort einen Vordergrund-Dienst.
 
@@ -178,4 +179,4 @@ Nur lesen, um Paketnamen und Erfahrungen nachzuschlagen. Keinen Code übernehmen
 3. `--apply`, Änderungsprotokoll, `restore`, `check`
 4. `privacy` für Telemetrie-Settings
 5. DNS-Filter für Amazon-Tracking auf dem Homeserver (AdGuard Home oder Pi-hole im Docker auf Unraid). Vorsicht: zu aggressive Listen legen Prime Video, Appstore und Updates lahm
-6. Optional: eigener Launcher als Android-App
+6. Optional: eigener Launcher als Android-App. Ersetzt endgültig das Werbebanner oben im Amazon-Startbildschirm, das zu `com.amazon.tv.launcher` gehört und deshalb nicht per Paket entfernt wird

@@ -12,8 +12,7 @@ public static class DeviceSession
     /// <param name="applyEnabled">Nur mit true lässt der Client schreibende Befehle durch (--apply).</param>
     public static async Task<IAdbClient?> ConnectAsync(GlobalSettings settings, CancellationToken ct, bool applyEnabled = false)
     {
-        var config = ConfigLoader.Load(Path.Combine(Directory.GetCurrentDirectory(), ConfigLoader.FileName), settings.Host);
-
+        var config = LoadConfig(settings);
         var adb = new AdbClient(config.Serial, applyEnabled);
 
         var connection = await new DeviceConnector(adb).ConnectAsync(ct);
@@ -25,4 +24,7 @@ public static class DeviceSession
             AnsiConsole.MarkupLine($"[grey]adb connect: {Markup.Escape(connection.ConnectMessage)}[/]");
         return null;
     }
+
+    public static AppConfig LoadConfig(GlobalSettings settings) =>
+        ConfigLoader.Load(Path.Combine(Directory.GetCurrentDirectory(), ConfigLoader.FileName), settings.Host);
 }

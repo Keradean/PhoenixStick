@@ -104,6 +104,25 @@ public class DebloatPlannerTests
     }
 
     [Fact]
+    public void Plan_KeepList_SkipsPackage()
+    {
+        var plan = DebloatPlanner.Plan(_threeCategories, _threeInstalled, Preset.Risky, [], keep: ["com.amazon.optional"]);
+
+        Assert.Equal(["com.amazon.risky", "com.amazon.safe"], Planned(plan));
+        Assert.Equal(SkipReason.Keep, ReasonFor(plan, "com.amazon.optional"));
+    }
+
+    [Fact]
+    public void Plan_NeverTouchStillWinsOverKeep()
+    {
+        var catalog = LoadCatalog(List(Entry("com.amazon.tv.launcher", "safe")), NeverTouch("com.amazon.tv.launcher"));
+
+        var plan = DebloatPlanner.Plan(catalog, [System("com.amazon.tv.launcher")], Preset.Safe, [], keep: ["com.amazon.tv.launcher"]);
+
+        Assert.Equal(SkipReason.NeverTouch, ReasonFor(plan, "com.amazon.tv.launcher"));
+    }
+
+    [Fact]
     public void Plan_CatalogEntryNotOnDevice_ReportedAsNotInstalled()
     {
         var plan = DebloatPlanner.Plan(_threeCategories, [System("com.amazon.safe")], Preset.Safe, []);

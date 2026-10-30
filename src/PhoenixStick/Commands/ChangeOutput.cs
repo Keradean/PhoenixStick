@@ -10,7 +10,14 @@ public static class ChangeOutput
 {
     public static void PrintEntry(ChangeEntry entry)
     {
-        var verb = entry.Action == ChangeAction.Disable ? "deaktiviert" : "aktiviert";
+        var verb = entry.Action switch
+        {
+            ChangeAction.Disable => "deaktiviert",
+            ChangeAction.Enable => "aktiviert",
+            ChangeAction.RestrictBackground => "im Hintergrund gesperrt",
+            ChangeAction.AllowBackground => "darf wieder im Hintergrund laufen",
+            _ => entry.Action.ToString(),
+        };
         var line = entry.Result switch
         {
             ChangeResult.Success => $"[green]OK[/]       {Markup.Escape(entry.Package)} {verb}",

@@ -8,6 +8,7 @@ public enum SkipReason
     NeverTouch,
     ThirdParty,
     NotInCatalog,
+    Keep,
     NotInstalled,
     AlreadyDisabled,
     Protected,
@@ -28,15 +29,17 @@ public static class DebloatPlanner
         PackageCatalog catalog,
         IReadOnlyList<PackageInfo> installed,
         Preset preset,
-        IReadOnlyCollection<string> includedGroups)
+        IReadOnlyCollection<string> includedGroups,
+        IReadOnlyCollection<string>? keep = null)
     {
+        keep ??= [];
         var actions = new List<PlannedAction>();
         var skipped = new List<SkippedPackage>();
 
         foreach (var package in installed.OrderBy(p => p.Name, StringComparer.Ordinal))
         {
             var entry = catalog.Find(package.Name);
-            var reason = GetSkipReason(catalog, package, entry, preset, includedGroups);
+            var reason = GetSkipReason(catalog, package, entry, preset, includedGroups, keep);
 
             if (reason is null)
                 actions.Add(new PlannedAction(entry!, PackageCommands.Disable(package.Name)));
@@ -57,7 +60,8 @@ public static class DebloatPlanner
         PackageInfo package,
         CatalogEntry? entry,
         Preset preset,
-        IReadOnlyCollection<string> includedGroups)
+        IReadOnlyCollection<string> includedGroups,
+        IReadOnlyCollection<string> keep)
     {
         if (catalog.IsNeverTouch(package.Name))
             return SkipReason.NeverTouch;
@@ -65,6 +69,8 @@ public static class DebloatPlanner
             return SkipReason.ThirdParty;
         if (entry is null)
             return SkipReason.NotInCatalog;
+        if (keep.Contains(package.Name))
+            return SkipReason.Keep;
         if (!package.IsEnabled)
             return SkipReason.AlreadyDisabled;
         if (entry.Protected)
@@ -81,6 +87,7 @@ public static class DebloatPlanner
         SkipReason.NeverTouch => "never touch",
         SkipReason.ThirdParty => "Drittanbieter-App, wird nie angefasst",
         SkipReason.NotInCatalog => "nicht im Katalog",
+        SkipReason.Keep => "behalten (config.json)",
         SkipReason.NotInstalled => "nicht auf dem Gerät",
         SkipReason.AlreadyDisabled => "schon deaktiviert",
         SkipReason.Protected => "von Fire OS geschützt",
