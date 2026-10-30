@@ -1,0 +1,1041 @@
+[
+  {
+    "package": "com.amazon.hybridadidservice",
+    "label": "Werbe-ID",
+    "category": "safe",
+    "reason": "Verwaltet die Werbe-ID für personalisierte Werbung",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.privacypassservice",
+    "label": "Werbe-Token",
+    "category": "safe",
+    "reason": "Token-Dienst für Werbung",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.shoptv.client",
+    "label": "Shopping am TV",
+    "category": "safe",
+    "reason": "Einkaufen über den Fernseher",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.shoptv.firetv.client",
+    "label": "Shopping am TV (2)",
+    "category": "safe",
+    "reason": "Zweiter Shopping-Client",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.sneakpeek",
+    "label": "Automatische Trailer",
+    "category": "safe",
+    "reason": "Spielt Werbung und Trailer im Startbildschirm automatisch ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.systemnotices",
+    "label": "Werbehinweise",
+    "category": "safe",
+    "reason": "Amazon-Werbemeldungen",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.tv.website_launcher",
+    "label": "Werbe-Webseiten",
+    "category": "safe",
+    "reason": "Öffnet Werbe-Webseiten",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amznfuse.operatorredirection",
+    "label": "Mobilfunk-Partner",
+    "category": "safe",
+    "reason": "Weiterleitung zu Telekom-Partnern",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.device.sale.service",
+    "label": "Angebote",
+    "category": "safe",
+    "reason": "Meldungen zu Angeboten und Rabatten (SaleProvider)",
+    "breaks": "",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.tv.fw.metrics",
+    "label": "Framework-Metriken",
+    "category": "safe",
+    "reason": "Telemetrie des Systems",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.wirelessmetrics.service",
+    "label": "WLAN-Metriken",
+    "category": "safe",
+    "reason": "Telemetrie zum WLAN",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.perfcollection",
+    "label": "Leistungsdaten",
+    "category": "safe",
+    "reason": "Sammelt Leistungsdaten",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.ceviche",
+    "label": "Analyse-Pipeline",
+    "category": "safe",
+    "reason": "Analyse-Pipeline mit Fernkonfiguration",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.connectivitydiag",
+    "label": "Verbindungsdiagnose",
+    "category": "safe",
+    "reason": "Diagnosedaten zur Netzwerkverbindung",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.developer.dataservice",
+    "label": "Entwickler-Analysen",
+    "category": "safe",
+    "reason": "Analysedaten für Entwickler",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.wifilocker",
+    "label": "WLAN-Passwort-Sync",
+    "category": "safe",
+    "reason": "Lädt gespeicherte WLAN-Passwörter zu Amazon hoch",
+    "breaks": "WLAN-Passwörter werden nicht mehr mit anderen Amazon-Geräten geteilt",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.katoch",
+    "label": "Experimente",
+    "category": "safe",
+    "reason": "Experimente und Fernkonfiguration",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.easyupgrade",
+    "label": "Umzugsassistent",
+    "category": "safe",
+    "reason": "Daten auf einen neuen Fire TV übertragen",
+    "breaks": "Umzug auf ein neues Gerät per Assistent",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.whisperjoin.wss.wifiprovisioner",
+    "label": "WLAN für andere Geräte",
+    "category": "safe",
+    "reason": "Gibt WLAN-Daten an neue Amazon-Geräte weiter",
+    "breaks": "Einrichtung neuer Echo-Geräte über den Stick",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.tv.ffsprovisioneeclient",
+    "label": "Frustfreie Einrichtung",
+    "category": "safe",
+    "reason": "Einrichtung anderer Amazon-Geräte",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.storm.lightning.tutorial",
+    "label": "Tutorial",
+    "category": "safe",
+    "reason": "Einführungs-Tutorial",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tmm.tutorial",
+    "label": "Tutorial",
+    "category": "safe",
+    "reason": "Einführungs-Tutorial",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.releasenotes",
+    "label": "Versionshinweise",
+    "category": "safe",
+    "reason": "Zeigt Neuerungen nach Updates",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.mediatek.atci.service",
+    "label": "MediaTek-Testdienst",
+    "category": "safe",
+    "reason": "Testdienst des Chipherstellers",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.android.carrierconfig",
+    "label": "Mobilfunk-Konfiguration",
+    "category": "safe",
+    "reason": "Mobilfunk, der Stick hat keine SIM",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet)"
+  },
+  {
+    "package": "com.amazon.client.metrics",
+    "label": "Client-Metriken",
+    "category": "safe",
+    "reason": "Telemetrie. Fire OS 6.7.1.1 lehnt das Deaktivieren ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)",
+    "protected": true
+  },
+  {
+    "package": "com.amazon.device.metrics",
+    "label": "Gerätemetriken",
+    "category": "safe",
+    "reason": "Telemetrie. Fire OS 6.7.1.1 lehnt das Deaktivieren ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)",
+    "protected": true
+  },
+  {
+    "package": "com.amazon.device.crashmanager",
+    "label": "Absturzberichte",
+    "category": "safe",
+    "reason": "Sendet Absturzberichte. Fire OS 6.7.1.1 lehnt das Deaktivieren ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)",
+    "protected": true
+  },
+  {
+    "package": "com.amazon.device.logmanager",
+    "label": "Logs",
+    "category": "safe",
+    "reason": "Sammelt Logs. Fire OS 6.7.1.1 lehnt das Deaktivieren ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)",
+    "protected": true
+  },
+  {
+    "package": "com.amazon.ftvads.deeplinking",
+    "label": "Werbe-Deeplinks",
+    "category": "safe",
+    "reason": "Werbung. Fire OS 6.7.1.1 lehnt das Deaktivieren ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)",
+    "protected": true
+  },
+  {
+    "package": "com.amazon.device.rdmapplication",
+    "label": "Fernwartung",
+    "category": "safe",
+    "reason": "Remote Device Management. Fire OS 6.7.1.1 lehnt das Deaktivieren ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)",
+    "protected": true
+  },
+  {
+    "package": "com.amazon.tv.csapp",
+    "label": "Kundendienst-Daten",
+    "category": "safe",
+    "reason": "Telemetrie für den Kundendienst. Fire OS 6.7.1.1 lehnt das Deaktivieren ab",
+    "breaks": "",
+    "source": "dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)",
+    "protected": true
+  },
+  {
+    "package": "com.amazon.aca",
+    "label": "Alexa-Mikrofon",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "App, die das Mikrofon besitzt",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.alexa.datastore.app",
+    "label": "Alexa-Daten",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Datenspeicher für Alexa",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.alexamediaplayer.runtime.ftv",
+    "label": "Alexa-Mediaplayer",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Mediaplayer für Alexa",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.alexa.externalmediaplayer.fireos",
+    "label": "Alexa externe Player",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Alexa steuert andere Player",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.tv.alexaalerts",
+    "label": "Alexa-Wecker",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Wecker und Timer",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.tv.alexanotifications",
+    "label": "Alexa-Benachrichtigungen",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Benachrichtigungen von Alexa",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.vizzini.ftvcds",
+    "label": "Alexa-Stub",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Stub für Alexa-Inhalte",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.audiohome",
+    "label": "Alexa Audio",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Audio-Startseite für Alexa",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.spotify.mediabrowserservice",
+    "label": "Alexa + Spotify",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Lässt Alexa Spotify abspielen",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.wha.mediabrowserservice",
+    "label": "Alexa Multiroom",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Multiroom-Audio",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.aria",
+    "label": "Alexa-Karten",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Visuelle Karten von Alexa",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.whad",
+    "label": "Alexa Multiroom (2)",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Multiroom-Audio",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.whasettings",
+    "label": "Alexa Multiroom (Einstellungen)",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Einstellungen für Multiroom-Audio",
+    "breaks": "Sprachsteuerung und Alexa-Funktionen",
+    "source": "dumbtv data/fireos/alexa.txt"
+  },
+  {
+    "package": "com.amazon.aiondec",
+    "label": "Alexa-Skills",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Verbindung zu Alexa-Skills (SkillConnectionActivity)",
+    "breaks": "Alexa-Skills",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.cardinal",
+    "label": "Alexa-Mediensteuerung",
+    "category": "optional",
+    "group": "alexa",
+    "reason": "Mediensteuerung mit Alexa, nutzt das Mikrofon",
+    "breaks": "Sprachsteuerung von Medien",
+    "source": "dumpsys package am Gerät (Goal 02), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.cast.sink",
+    "label": "Bildschirmspiegelung",
+    "category": "optional",
+    "group": "mirroring",
+    "reason": "Miracast vom Handy auf den TV",
+    "breaks": "Bildschirmspiegelung",
+    "source": "dumpsys package am Gerät (Goal 02), docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.bueller.music",
+    "label": "Amazon Music",
+    "category": "optional",
+    "reason": "Amazon Music",
+    "breaks": "Amazon Music",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.bueller.photos",
+    "label": "Amazon Photos",
+    "category": "optional",
+    "reason": "Amazon Photos",
+    "breaks": "Amazon Photos",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.gamehub",
+    "label": "Spiele",
+    "category": "optional",
+    "reason": "Spiele-Bereich",
+    "breaks": "Spiele-Bereich im Startbildschirm",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.tahoe",
+    "label": "Amazon Kids",
+    "category": "optional",
+    "reason": "Kinderprofile und ihre PIN-Abfragen",
+    "breaks": "Amazon Kids",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.cloud9",
+    "label": "Silk-Browser",
+    "category": "optional",
+    "reason": "Webbrowser",
+    "breaks": "Silk-Browser",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.imdb.tv.android.app",
+    "label": "Freevee",
+    "category": "optional",
+    "reason": "Freevee, von Amazon eingestellt",
+    "breaks": "Freevee-App",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.imdb.livingroom.firetv",
+    "label": "IMDb",
+    "category": "optional",
+    "reason": "IMDb-App",
+    "breaks": "IMDb-App",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.minitv.android.app",
+    "label": "Amazon miniTV",
+    "category": "optional",
+    "reason": "Streamingdienst für Indien",
+    "breaks": "",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.hedwig",
+    "label": "Fire TV Channels",
+    "category": "optional",
+    "reason": "Nachrichten und Kanäle (FireChannelsMainActivity). dumbtv nennt es Nutzungs-Tracking",
+    "breaks": "Bereich Nachrichten/Kanäle",
+    "source": "dumpsys package am Gerät (Goal 02), dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.logan",
+    "label": "VoiceView",
+    "category": "optional",
+    "reason": "Screenreader mit Braille und Hochkontrast. dumbtv führt es fälschlich als Logging",
+    "breaks": "Bedienungshilfe VoiceView",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.tv.ottssocompanionapp",
+    "label": "TV-Anbieter-Anmeldung",
+    "category": "optional",
+    "reason": "Anmeldung über einen TV-Anbieter (USA)",
+    "breaks": "",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.mvpdauth",
+    "label": "TV-Anbieter-Anmeldung (2)",
+    "category": "optional",
+    "reason": "Anmeldung über einen TV-Anbieter",
+    "breaks": "",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.android.printspooler",
+    "label": "Drucken",
+    "category": "optional",
+    "reason": "Druckdienst",
+    "breaks": "Drucken",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.ods.kindleconnect",
+    "label": "Fernhilfe",
+    "category": "optional",
+    "reason": "Amazon-Fernhilfe mit Bildschirmfreigabe (Tarazed)",
+    "breaks": "Fernhilfe durch den Amazon-Kundendienst",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.stillwatching.activity",
+    "label": "Schaust du noch?",
+    "category": "optional",
+    "reason": "Abfrage \"Schaust du noch?\"",
+    "breaks": "Die Abfrage erscheint nicht mehr",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.recess",
+    "label": "Gelegenheitsspiele",
+    "category": "optional",
+    "reason": "Bereich für Gelegenheitsspiele",
+    "breaks": "",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.dp.logger",
+    "label": "Logger",
+    "category": "risky",
+    "reason": "Logging. dumbtv deaktiviert es, firestrip warnt vor Problemen mit der Handy-Fernbedienung",
+    "breaks": "Möglicherweise Fire-TV-App auf dem Handy",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tigris",
+    "label": "Tigris",
+    "category": "risky",
+    "reason": "dumbtv: Telemetrie. Laut dumpsys aber Appstore-Lokalisierung und Wiederherstellung",
+    "breaks": "Unklar, möglicherweise Appstore",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.ale",
+    "label": "ALE",
+    "category": "risky",
+    "reason": "dumbtv: Experimente, firestrip: Sprach-Engine von Alexa",
+    "breaks": "Möglicherweise Alexa",
+    "source": "dumbtv data/fireos6/packages.txt (auf AFTMM 6.7.1.1 getestet), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.adep",
+    "label": "Analyse-Daemon",
+    "category": "risky",
+    "reason": "Sammelt Ereignisse zu Paketen und Bootloader, nur von firestrip beschrieben",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.fireos.usagestats.proxy",
+    "label": "Nutzungsstatistik",
+    "category": "risky",
+    "reason": "Leitet Nutzungsstatistiken weiter",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.fireos.arcus.proxy",
+    "label": "Arcus",
+    "category": "risky",
+    "reason": "Fernkonfiguration von Amazon",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.naatyam",
+    "label": "Naatyam",
+    "category": "risky",
+    "reason": "Unklarer Inhaltsdienst mit Push-Empfänger",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.ftv.screensaver",
+    "label": "Bildschirmschoner",
+    "category": "risky",
+    "reason": "Amazon-Bildschirmschoner",
+    "breaks": "Ohne ihn bleibt ein Standbild stehen (Einbrenngefahr)",
+    "source": "dumbtv data/fireos/user-apps.txt, firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.notificationcenter",
+    "label": "Benachrichtigungen",
+    "category": "risky",
+    "reason": "Benachrichtigungszentrale",
+    "breaks": "Benachrichtigungen, evtl. Einstellungen",
+    "source": "dumbtv data/fireos/user-apps.txt, firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.uxnotification",
+    "label": "Benachrichtigungen (2)",
+    "category": "risky",
+    "reason": "Benachrichtigungsdienst",
+    "breaks": "Benachrichtigungen",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.bueller.notification",
+    "label": "Benachrichtigungen (3)",
+    "category": "risky",
+    "reason": "Benachrichtigungen und Overlay beim Moduswechsel",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.csm.htmlruntime",
+    "label": "HTML-Laufzeit",
+    "category": "risky",
+    "reason": "Laufzeit für Amazon-Bildschirme aus HTML",
+    "breaks": "Einzelne Amazon-Bildschirme",
+    "source": "dumbtv data/fireos/user-apps.txt"
+  },
+  {
+    "package": "com.amazon.kindleautomatictimezone",
+    "label": "Zeitzone",
+    "category": "risky",
+    "reason": "Automatische Zeitzone",
+    "breaks": "Uhrzeit, Zertifikate und Streaming bei falscher Zeit",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.kso.blackbird",
+    "label": "Blackbird",
+    "category": "risky",
+    "reason": "Interner Dienst mit Konto-Sync",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.alta.h2clientservice",
+    "label": "H2-Client",
+    "category": "risky",
+    "reason": "Interner Client-Dienst mit Konto-Sync",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.firerestapiframework",
+    "label": "REST-Framework",
+    "category": "risky",
+    "reason": "Interne REST-Schnittstelle",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.communication.discovery",
+    "label": "Kommunikation",
+    "category": "risky",
+    "reason": "Geräteerkennung für Amazon-Kommunikation",
+    "breaks": "Alexa, Fehler in vizzini",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.android.marketplace",
+    "label": "Marketplace",
+    "category": "risky",
+    "reason": "Marketplace-Dienst, gehört zum Appstore",
+    "breaks": "Möglicherweise Appstore",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.appaccesskeyprovider",
+    "label": "App-Zugriffsschlüssel",
+    "category": "risky",
+    "reason": "Schlüssel für App-Zugriffe",
+    "breaks": "Möglicherweise App-Lizenzen",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.dpcclient",
+    "label": "DPC-Client",
+    "category": "risky",
+    "reason": "Geräterichtlinien, empfängt Push-Nachrichten",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.securitysyncclient",
+    "label": "Sicherheits-Sync",
+    "category": "risky",
+    "reason": "Lädt Sicherheitskonfiguration herunter",
+    "breaks": "Sicherheitsfunktionen",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.sharingservice.android.client.proxy",
+    "label": "Haushalt-Freigabe",
+    "category": "risky",
+    "reason": "Amazon-Haushalt und Freigaben",
+    "breaks": "Profile und Freigaben",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.ssdpservice",
+    "label": "SSDP",
+    "category": "risky",
+    "reason": "Gerätesuche im Netz für Echo und Alexa",
+    "breaks": "Alexa, Casting",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.metrics.api",
+    "label": "Metriken-API",
+    "category": "risky",
+    "reason": "Bibliothek, andere Pakete binden sie ein",
+    "breaks": "Pakete, die sie nutzen",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.client.metrics.api",
+    "label": "Client-Metriken-API",
+    "category": "risky",
+    "reason": "Bibliothek, andere Pakete binden sie ein",
+    "breaks": "Einstellungen (laut firestrip)",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.minerva.client.api",
+    "label": "Minerva-API",
+    "category": "risky",
+    "reason": "Metriken-Bibliothek",
+    "breaks": "Pakete, die sie nutzen",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.device.sync",
+    "label": "Geräte-Sync",
+    "category": "risky",
+    "reason": "Synchronisiert Kontodaten",
+    "breaks": "Merkliste, Profile, Fortschritt",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.device.sync.sdk.internal",
+    "label": "Geräte-Sync-SDK",
+    "category": "risky",
+    "reason": "Bibliothek für den Sync",
+    "breaks": "Wie Geräte-Sync",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.sync.service",
+    "label": "Inhalts-Sync",
+    "category": "risky",
+    "reason": "Synchronisiert Inhalte mit dem Konto",
+    "breaks": "Merkliste, Fortschritt",
+    "source": "firestrip common.toml, dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.sync.provider.ipc",
+    "label": "Sync-IPC",
+    "category": "risky",
+    "reason": "Gehört zum Inhalts-Sync",
+    "breaks": "Wie Inhalts-Sync",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.assetsync.service",
+    "label": "Asset-Sync",
+    "category": "risky",
+    "reason": "Synchronisiert Bilder und Daten im Hintergrund",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.providers",
+    "label": "Inhaltsanbieter",
+    "category": "risky",
+    "reason": "Whitelist für URLs",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.providers.contentsupport",
+    "label": "Inhaltsunterstützung",
+    "category": "risky",
+    "reason": "Content-Provider für Amazon-Apps",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.prism.android.service",
+    "label": "Prism",
+    "category": "risky",
+    "reason": "Verknüpfte App-Profile",
+    "breaks": "Profile in Apps",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.neodelegate",
+    "label": "Neo Delegate",
+    "category": "risky",
+    "reason": "Systemdienst (UID 1000) mit WLAN- und Bluetooth-Rechten",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.neopactservice",
+    "label": "Neo Pact",
+    "category": "risky",
+    "reason": "Interner Dienst mit Push-Empfänger",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.tv.turnstile",
+    "label": "Turnstile",
+    "category": "risky",
+    "reason": "Interner Hintergrunddienst",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.tv.consents",
+    "label": "Einwilligungen",
+    "category": "risky",
+    "reason": "Dialog für Datenschutz-Einwilligungen",
+    "breaks": "Datenschutz-Einstellungen",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.device.details",
+    "label": "Gerätedetails",
+    "category": "risky",
+    "reason": "Liefert Gerätedaten an andere Apps",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.livedeviceservice",
+    "label": "Live Device Service",
+    "category": "risky",
+    "reason": "Interner Gerätedienst",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.diode",
+    "label": "Diode",
+    "category": "risky",
+    "reason": "Netzwerk- und Sprachausgabe-Analyse",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.device.settings",
+    "label": "Fern-Einstellungen",
+    "category": "risky",
+    "reason": "Settings, die Amazon aus der Ferne setzt",
+    "breaks": "Unklar",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.device.settings.sdk.internal.library",
+    "label": "Fern-Einstellungen-SDK",
+    "category": "risky",
+    "reason": "Bibliothek dazu",
+    "breaks": "Einstellungen (laut firestrip)",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.device.lowstoragemanager",
+    "label": "Speicherwarnung",
+    "category": "risky",
+    "reason": "Warnung bei wenig Speicher",
+    "breaks": "Einstellungen (laut firestrip)",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.storage.manager",
+    "label": "Speicherverwaltung",
+    "category": "risky",
+    "reason": "Räumt Speicher auf",
+    "breaks": "Speicher läuft voll",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.ssm",
+    "label": "Systemstatus",
+    "category": "risky",
+    "reason": "System Status Monitor",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.ssmsys",
+    "label": "Systemstatus (2)",
+    "category": "risky",
+    "reason": "System Status Monitor",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.intentsupport",
+    "label": "Intent-Support",
+    "category": "risky",
+    "reason": "Fängt nicht unterstützte Aufrufe ab",
+    "breaks": "Einstellungen (laut firestrip)",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.legal.notices",
+    "label": "Rechtliche Hinweise",
+    "category": "risky",
+    "reason": "Rechtliche Hinweise in den Einstellungen",
+    "breaks": "Menüpunkt in den Einstellungen",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.legalresources",
+    "label": "Rechtliche Texte",
+    "category": "risky",
+    "reason": "Texte für die rechtlichen Hinweise",
+    "breaks": "Menüpunkt in den Einstellungen",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.tv.parentalcontrols",
+    "label": "Kindersicherung",
+    "category": "risky",
+    "reason": "PIN für Käufe und Inhalte",
+    "breaks": "Kindersicherung und Kauf-PIN",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.android.service.networkmonitor",
+    "label": "Netzwerkmonitor",
+    "category": "risky",
+    "reason": "Überwacht die Netzwerkverbindung",
+    "breaks": "Unklar",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.whisperlink.core.android",
+    "label": "Whisperlink",
+    "category": "risky",
+    "reason": "Geräteerkennung für Handy-App und Casting",
+    "breaks": "Fire-TV-App, Casting",
+    "source": "dumpsys package am Gerät (Goal 02), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.whisperplay.contracts",
+    "label": "Whisperplay-SDK",
+    "category": "risky",
+    "reason": "Bibliothek für Whisperlink",
+    "breaks": "Wie Whisperlink",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.awvflingreceiver",
+    "label": "Fling-Empfänger",
+    "category": "risky",
+    "reason": "Empfängt Videos, die vom Handy geschickt werden",
+    "breaks": "Casting aus Apps",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.avsyncslider",
+    "label": "AV-Sync und Dolby",
+    "category": "risky",
+    "reason": "Ton-Bild-Abgleich und Dolby-Infos",
+    "breaks": "Ton-Einstellungen",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.avls.experience",
+    "label": "AVLS",
+    "category": "risky",
+    "reason": "Unklar, möglicherweise Prime Video Live",
+    "breaks": "Möglicherweise Prime Video",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.platform.fdrw",
+    "label": "Reset-Whitelist",
+    "category": "risky",
+    "reason": "Whitelist für das Zurücksetzen auf Werkseinstellungen",
+    "breaks": "Zurücksetzen",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.amasetup.service",
+    "label": "AMA-Einrichtung",
+    "category": "risky",
+    "reason": "Einrichtung von Alexa-Zubehör über Bluetooth",
+    "breaks": "Alexa-Zubehör, möglicherweise Bluetooth",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.application.compatibility.enforcer",
+    "label": "Kompatibilitätsprüfung",
+    "category": "risky",
+    "reason": "Prüft App-Kompatibilität",
+    "breaks": "Apps (laut firestrip)",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.application.compatibility.enforcer.sdk.library",
+    "label": "Kompatibilitätsprüfung (SDK)",
+    "category": "risky",
+    "reason": "Bibliothek dazu",
+    "breaks": "Apps (laut firestrip)",
+    "source": "firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.ftv.xpicker",
+    "label": "Profilwechsel",
+    "category": "risky",
+    "reason": "Profilwechsel und Kids-Startseite (ProfileSwitchActivity)",
+    "breaks": "Profile, Amazon Kids",
+    "source": "dumpsys package am Gerät (Goal 02), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.dcpms.fos.service",
+    "label": "DCPMS",
+    "category": "risky",
+    "reason": "Interner Dienst, Teil der Geräteplattform",
+    "breaks": "Unklar, möglicherweise Updates",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  }
+]

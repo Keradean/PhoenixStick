@@ -1,0 +1,332 @@
+[
+  {
+    "package": "android",
+    "reason": "Android-Framework",
+    "source": "CLAUDE.md Mindestliste"
+  },
+  {
+    "package": "com.android.systemui",
+    "reason": "Systemoberfläche",
+    "source": "CLAUDE.md Mindestliste"
+  },
+  {
+    "package": "com.android.providers.settings",
+    "reason": "Speichert alle Settings",
+    "source": "CLAUDE.md Mindestliste"
+  },
+  {
+    "package": "com.android.providers.downloads",
+    "reason": "Download-Dienst, Updates und Appstore brauchen ihn",
+    "source": "CLAUDE.md Mindestliste"
+  },
+  {
+    "package": "com.amazon.tv.launcher",
+    "reason": "Amazon-Startbildschirm",
+    "source": "CLAUDE.md Mindestliste"
+  },
+  {
+    "package": "com.amazon.firehomestarter",
+    "reason": "Startet den Startbildschirm beim Booten",
+    "source": "CLAUDE.md Mindestliste"
+  },
+  {
+    "package": "com.amazon.tv.settings.v2",
+    "reason": "Einstellungen",
+    "source": "CLAUDE.md Mindestliste"
+  },
+  {
+    "package": "com.amazon.tv.settings.core",
+    "reason": "Kern der Einstellungen",
+    "source": "dumbtv data/fireos6/never-disable.txt, firestrip common.toml"
+  },
+  {
+    "package": "com.android.shell",
+    "reason": "adb shell selbst, ohne ihn kann das Tool nichts mehr rückgängig machen",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.android.packageinstaller",
+    "reason": "Installiert und aktualisiert Apps",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.tv.oobe",
+    "reason": "Ersteinrichtung, nötig nach einem Zurücksetzen",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.ftv.profilepicker",
+    "reason": "Profile, der Launcher ruft ihn beim Start auf",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.tv.resolutioncycler",
+    "reason": "Bildschirmauflösung zurücksetzen (Hoch + Zurückspulen)",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.webview.chromium",
+    "reason": "WebView, viele Apps brauchen sie",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.webview",
+    "reason": "WebView-Bibliothek",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.venezia",
+    "reason": "Appstore, lizenziert Apps beim Start",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.vizzini",
+    "reason": "Alexa-Kern, schaltet sich auf Fire OS 6 beim Booten ohnehin wieder ein",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.android.bluetooth",
+    "reason": "Bluetooth-Stack: Fernbedienung, Kopfhörer, Gamepads",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.android.bluetoothmidiservice",
+    "reason": "Teil des Bluetooth-Stacks",
+    "source": "docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.autopairservice",
+    "reason": "Pairing der Fernbedienung",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.device.bluetoothpa",
+    "reason": "Bluetooth-Pairing",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.device.blepa",
+    "reason": "Bluetooth-LE-Pairing",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.device.bluetoothkeymaplib",
+    "reason": "Tastenbelegung der Bluetooth-Fernbedienung (KeyMapService)",
+    "source": "dumpsys package am Gerät (Goal 02), docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.device.bluetoothdfu",
+    "reason": "Firmware-Updates für Fernbedienung und Bluetooth-Zubehör",
+    "source": "firestrip common.toml, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.connectivitycontroller",
+    "reason": "Bluetooth-LE-Schalter, Akkustand der Fernbedienung, IR-Fallback",
+    "source": "dumpsys package am Gerät (Goal 02), docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.uxcontrollerservice",
+    "reason": "Bluetooth-Pairing-Anfragen (BluetoothPairingRequest)",
+    "source": "dumpsys package am Gerät (Goal 02), docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.device.smartkeymanager",
+    "reason": "Tastenereignisse der Fernbedienung",
+    "source": "dumpsys package am Gerät (Goal 02), docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.accessoryconfigservice",
+    "reason": "Konfiguration von Zubehör wie Gamepads",
+    "source": "docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.fireinputdevices",
+    "reason": "Eingabegeräte und Fernbedienung",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.tv.keypolicymanager",
+    "reason": "Tasten der Fernbedienung",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.google.android.athome.globalkeyinterceptor",
+    "reason": "Globale Fernbedienungstasten",
+    "source": "docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.whisperjoin.middleware.np",
+    "reason": "Geräte-Einrichtung und Pairing",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.whisperplay.service.install",
+    "reason": "Gehört zu Einrichtung und Pairing",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.storm.lightning.services",
+    "reason": "Fire-TV-App auf dem Handy als Fernbedienung und Tastatur",
+    "source": "dumpsys package am Gerät (Goal 02), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.devicecontrol",
+    "reason": "HDMI-CEC: TV an/aus und Lautstärke",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.tv.devicecontrolsettings",
+    "reason": "Einstellungen zu HDMI-CEC und Gerätesteuerung",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.tv.inputpreference.service",
+    "reason": "HDMI- und Eingangswahl (falls vorhanden)",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.franktvinput",
+    "reason": "TV-Eingangsdienst, HDMI-Umschaltung",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.tifobserver",
+    "reason": "TV-Input-Framework",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.tv.routing",
+    "reason": "Leitet Inhalte und Eingänge weiter",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.tv.livetv",
+    "reason": "Live-TV und Senderliste",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.providers.tv",
+    "reason": "TV-Datenbank von Amazon (FireTvProvider)",
+    "source": "dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.android.providers.tv",
+    "reason": "TV-Datenbank von Android",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.net.smartconnect",
+    "reason": "WLAN-Verbindungsdienst (SmartConnectService)",
+    "source": "dumpsys package am Gerät (Goal 02), docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.cpl",
+    "reason": "Anmeldeseiten von WLANs (Captive Portal)",
+    "source": "firestrip common.toml, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.tv.ime",
+    "reason": "Bildschirmtastatur",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.ivona.orchestrator",
+    "reason": "Sprachausgabe für VoiceView",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.ivona.tts.oem",
+    "reason": "Sprachausgabe",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.svox.pico",
+    "reason": "Sprachausgabe",
+    "source": "dumbtv data/fireos6/never-disable.txt"
+  },
+  {
+    "package": "com.amazon.device.software.ota",
+    "reason": "Systemupdates",
+    "source": "docs/GERAET.md (Entscheidung Dennis), dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)"
+  },
+  {
+    "package": "com.amazon.device.software.ota.override",
+    "reason": "Systemupdates",
+    "source": "docs/GERAET.md (Entscheidung Dennis), dumbtv data/fireos6/protected.txt (auf AFTMM 6.7.1.1 abgelehnt)"
+  },
+  {
+    "package": "com.amazon.dcp",
+    "reason": "OTA-Framework",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.dcp.contracts.library",
+    "reason": "OTA-Bibliothek",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.dcp.contracts.framework.library",
+    "reason": "OTA-Bibliothek",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tv.forcedotaupdater.v2",
+    "reason": "Erzwungene System- und App-Updates (ForcedUpdateActivity, FotaActivity)",
+    "source": "docs/GERAET.md (Entscheidung Dennis), dumpsys package am Gerät (Goal 02)"
+  },
+  {
+    "package": "com.amazon.firebat",
+    "reason": "Prime Video",
+    "source": "dumbtv data/fireos6/never-disable.txt, docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.tv.support",
+    "reason": "Prime-Video-Support (APK heißt com.amazon.tv.aiv.support)",
+    "source": "dumpsys package am Gerät (Goal 02), docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.device.messaging",
+    "reason": "Amazons Push-Dienst (ADM), Prime Video braucht ihn",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.device.messaging.sdk.library",
+    "reason": "ADM-Bibliothek",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.device.messaging.sdk.internal.library",
+    "reason": "ADM-Bibliothek",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tcomm",
+    "reason": "Amazon-Kommunikationsdienst, Grundlage für Push",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tcomm.client",
+    "reason": "Amazon-Kommunikationsdienst",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.tcomm.jackson",
+    "reason": "Bibliothek für den Kommunikationsdienst",
+    "source": "docs/GERAET.md (Entscheidung Dennis)"
+  },
+  {
+    "package": "com.amazon.identity.auth.device.authorization",
+    "reason": "Amazon-Konto, Anmeldung",
+    "source": "docs/GERAET.md (Entscheidung Dennis), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.imp",
+    "reason": "Amazon-Konto, Single Sign-on (AccountAuthenticationService)",
+    "source": "docs/GERAET.md (Entscheidung Dennis), dumpsys package am Gerät (Goal 02), firestrip common.toml"
+  },
+  {
+    "package": "com.amazon.dialservice",
+    "reason": "DIAL: Netflix und YouTube vom Handy auf den TV schicken",
+    "source": "docs/GERAET.md (Entscheidung Dennis)"
+  }
+]
