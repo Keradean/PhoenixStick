@@ -1,0 +1,190 @@
+{
+  "name": "Sci-Fi (Arbeitstitel)",
+  "id": "scifi",
+  "default": false,
+  "reference": "1920x1080 px",
+  "color": {
+    "background": "#060A11",
+    "surface": "rgba(79,227,255,0.05)",
+    "surfaceRaised": "rgba(79,227,255,0.10)",
+    "surfaceFocus": "rgba(79,227,255,0.14)",
+    "border": "rgba(79,227,255,0.30)",
+    "borderStrong": "rgba(79,227,255,0.50)",
+    "grid": "rgba(79,227,255,0.06)",
+    "divider": "rgba(79,227,255,0.25)",
+    "textPrimary": "#E8F6FF",
+    "textSecondary": "#CFE3F2",
+    "textMeta": "#B5C6D6",
+    "textMuted": "#8FA3B8",
+    "accent": "#4FE3FF",
+    "focusBrackets": "#FFFFFF",
+    "focusGlow": "rgba(79,227,255,0.45)",
+    "buttonPrimaryBg": "#4FE3FF",
+    "buttonPrimaryText": "#04121A"
+  },
+  "font": {
+    "display": {
+      "family": "Chakra Petch",
+      "weights": [
+        500,
+        600,
+        700
+      ],
+      "license": "SIL Open Font License 1.1"
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "weights": [
+        400,
+        500
+      ],
+      "license": "SIL Open Font License 1.1"
+    }
+  },
+  "type": {
+    "clock": {
+      "font": "mono",
+      "size": 42,
+      "weight": 500,
+      "tabular": true
+    },
+    "date": {
+      "font": "mono",
+      "size": 20,
+      "weight": 400,
+      "letterSpacingEm": 0.12,
+      "color": "textMuted"
+    },
+    "eyebrow": {
+      "font": "mono",
+      "size": 20,
+      "weight": 400,
+      "letterSpacingEm": 0.2,
+      "uppercase": true,
+      "prefix": "// ",
+      "color": "accent"
+    },
+    "heroTitle": {
+      "font": "display",
+      "size": 112,
+      "weight": 700,
+      "letterSpacingEm": 0.01,
+      "lineHeight": 1.0,
+      "uppercase": true
+    },
+    "heroMeta": {
+      "font": "mono",
+      "size": 22,
+      "weight": 400,
+      "color": "textMeta"
+    },
+    "button": {
+      "font": "display",
+      "size": 26,
+      "weight": 700,
+      "letterSpacingEm": 0.08,
+      "uppercase": true
+    },
+    "buttonSecondary": {
+      "font": "display",
+      "size": 22,
+      "weight": 600,
+      "letterSpacingEm": 0.06,
+      "uppercase": true
+    },
+    "sectionTitle": {
+      "font": "mono",
+      "size": 20,
+      "weight": 500,
+      "letterSpacingEm": 0.2,
+      "uppercase": true,
+      "color": "textMuted"
+    },
+    "tileLabel": {
+      "font": "display",
+      "size": 26,
+      "weight": 600,
+      "letterSpacingEm": 0.04,
+      "uppercase": true
+    },
+    "tileLabelFocused": {
+      "font": "display",
+      "size": 30,
+      "weight": 700
+    },
+    "hint": {
+      "font": "mono",
+      "size": 18,
+      "weight": 400
+    }
+  },
+  "layout": {
+    "safeArea": {
+      "left": 96,
+      "right": 96,
+      "top": 52,
+      "bottom": 40
+    },
+    "heroHeight": 704,
+    "tile": {
+      "width": 340,
+      "height": 190,
+      "radius": 4,
+      "gap": 28,
+      "borderWidth": 1
+    },
+    "tileFocused": {
+      "scale": 1.06,
+      "borderWidth": 2,
+      "borderColor": "accent",
+      "glow": "0 0 36 focusGlow",
+      "brackets": {
+        "size": 22,
+        "width": 3,
+        "offset": 10
+      }
+    },
+    "buttonPrimary": {
+      "height": 68,
+      "paddingX": 44,
+      "chamfer": 16
+    },
+    "buttonSecondary": {
+      "height": 68,
+      "paddingX": 36,
+      "borderWidth": 1
+    },
+    "iconButton": {
+      "size": 60,
+      "radius": 4
+    },
+    "avatar": {
+      "size": 64,
+      "radius": 4,
+      "borderWidth": 2
+    },
+    "icon": {
+      "size": 28,
+      "strokeWidth": 1.8
+    }
+  },
+  "style": {
+    "tileShape": "square",
+    "focusStyle": "brackets",
+    "buttonShape": "chamfer",
+    "labelCase": "upper",
+    "hasBackgroundGrid": true
+  },
+  "motion": {
+    "focusMs": 150,
+    "heroCrossfadeMs": 200,
+    "maxMs": 300,
+    "easing": "ease-out",
+    "note": "Radar-Bogen darf sich langsam drehen (eine Umdrehung in 20 s), nur wenn es auf dem Stick flüssig läuft"
+  },
+  "heroImage": {
+    "type": "vector",
+    "file": "design/referenz/scifi-hintergrund.svg",
+    "note": "Raster über den ganzen Bildschirm, Radar-Kreise rechts oben (Mittelpunkt 1440/360), Trennlinie bei y=704"
+  }
+}

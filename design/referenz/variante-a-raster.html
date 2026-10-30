@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Variante A Raster</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0E1116}
+a{color:#FF8A4C}a:hover{color:#FFB08A}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; box-sizing: border-box; padding: 64px 96px; background: #0E1116; color: #F2F4F7; font-family: 'Manrope', system-ui, sans-serif; display: flex; flex-direction: column; gap: 44px">
+
+  <header style="display: flex; align-items: center; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <p style="margin: 0; font-size: 22px; font-weight: 600; color: #9AA3AF; letter-spacing: 0.04em">FREITAG, 30. OKTOBER</p>
+      <h1 style="margin: 0; font-size: 56px; font-weight: 800; letter-spacing: -0.01em">Guten Abend, Dennis</h1>
+    </div>
+    <div style="display: flex; align-items: center; gap: 28px">
+      <p style="margin: 0; font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums">20:15</p>
+      <button aria-label="Eingänge" style="width: 64px; height: 64px; border-radius: 32px; border: none; background: #1A2029; color: #E6E9EE; display: flex; align-items: center; justify-content: center">
+        <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+      </button>
+      <button aria-label="Einstellungen" style="width: 64px; height: 64px; border-radius: 32px; border: none; background: #1A2029; color: #E6E9EE; display: flex; align-items: center; justify-content: center">
+        <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg>
+      </button>
+      <button aria-label="Profil wechseln" style="width: 72px; height: 72px; border-radius: 36px; border: 3px solid {{accent}}; background: #232A35; color: #F2F4F7; font-family: inherit; font-size: 30px; font-weight: 800">D</button>
+    </div>
+  </header>
+
+  <section style="display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-size: 28px; font-weight: 700; color: #C9CED6">Favoriten</h2>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px">
+      <button style="height: 180px; border-radius: 20px; border: none; background: #2A3240; color: #FFFFFF; font-family: inherit; font-size: 34px; font-weight: 800; box-shadow: 0 0 0 5px #FFFFFF, 0 22px 48px rgba(0,0,0,0.55); transform: scale(1.06)">Netflix</button>
+      <sc-for list="{{favorites}}" as="app" hint-placeholder-count="4">
+        <button style="height: 180px; border-radius: 20px; border: none; background: #1A2029; color: #E6E9EE; font-family: inherit; font-size: 30px; font-weight: 700">{{app}}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-size: 28px; font-weight: 700; color: #C9CED6">Alle Apps</h2>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px">
+      <sc-for list="{{allApps}}" as="app" hint-placeholder-count="12">
+        <button style="height: 140px; border-radius: 16px; border: none; background: #161B23; color: #C9CED6; font-family: inherit; font-size: 24px; font-weight: 700">{{app}}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="margin-top: auto; display: flex; gap: 40px; font-size: 20px; color: #9AA3AF">
+    <span><strong style="color: #E6E9EE">OK</strong> öffnen</span>
+    <span><strong style="color: #E6E9EE">Menü</strong> zu Favoriten hinzufügen</span>
+    <span><strong style="color: #E6E9EE">Zurück</strong> Profil wechseln</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A4C","options":["#FF8A4C","#5B8CFF","#3FD0A6","#C084FC"]},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#FF8A4C',
+      favorites: ['Prime Video', 'YouTube', 'Disney+', 'Crunchyroll'],
+      allApps: ['Netflix', 'Prime Video', 'YouTube', 'Disney+', 'HBO', 'Crunchyroll', 'Twitch', 'ZDF', 'ARD', '7TV', 'DMAX', 'Toggo']
+    };
+  }
+}
+</script>
+</body>
+</html>

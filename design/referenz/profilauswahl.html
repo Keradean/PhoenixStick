@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Profilauswahl Phönix</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#120C0A}
+a{color:#FF7A3D}a:hover{color:#FFC14D}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; box-sizing: border-box; padding: 64px 96px; background: #120C0A; color: #F7EFE8; font-family: 'Manrope', system-ui, sans-serif; display: flex; flex-direction: column; align-items: center">
+
+  <p style="align-self: flex-end; margin: 0; font-size: 40px; font-weight: 700; font-variant-numeric: tabular-nums; color: {{gold}}">20:15</p>
+
+  <h1 style="margin: 150px 0 0; font-size: 72px; font-weight: 800; letter-spacing: -0.01em">Wer schaut?</h1>
+
+  <div style="margin-top: 96px; display: flex; gap: 72px; align-items: flex-start">
+    <button style="width: 260px; border: none; background: transparent; color: #FFFFFF; font-family: inherit; display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 0">
+      <span style="width: 220px; height: 220px; border-radius: 110px; background: #2C201B; display: flex; align-items: center; justify-content: center; font-size: 96px; font-weight: 800; box-shadow: 0 0 0 6px {{accent}}, 0 0 0 14px #120C0A, 0 0 0 18px #FFE2B8, 0 0 60px rgba(255,122,61,0.35); transform: scale(1.06)">D</span>
+      <span style="font-size: 36px; font-weight: 800; margin-top: 12px">Dennis</span>
+      <span style="font-size: 20px; font-weight: 600; color: #B3A79E">Theme: Phönix</span>
+    </button>
+    <button style="width: 260px; border: none; background: transparent; color: #EFE4DA; font-family: inherit; display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 0">
+      <span style="width: 220px; height: 220px; border-radius: 110px; background: #2B2140; display: flex; align-items: center; justify-content: center; font-size: 96px; font-weight: 800; color: #D9C6FF">?</span>
+      <span style="font-size: 34px; font-weight: 700; margin-top: 12px">[NAME]</span>
+      <span style="font-size: 20px; font-weight: 600; color: #B3A79E">Theme: Mondgarten</span>
+    </button>
+    <button style="width: 260px; border: none; background: transparent; color: #EFE4DA; font-family: inherit; display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 0">
+      <span style="width: 220px; height: 220px; border-radius: 110px; background: #1E1613; display: flex; align-items: center; justify-content: center; color: #D9CCC2">
+        <svg aria-hidden="true" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>
+      </span>
+      <span style="font-size: 34px; font-weight: 700; margin-top: 12px">Gast</span>
+      <span style="font-size: 20px; font-weight: 600; color: #B3A79E">Theme: Phönix</span>
+    </button>
+    <button style="width: 260px; border: none; background: transparent; color: #B3A79E; font-family: inherit; display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 0">
+      <span style="width: 220px; height: 220px; border-radius: 110px; border: 3px dashed #4A3A32; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #B3A79E">
+        <svg aria-hidden="true" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </span>
+      <span style="font-size: 30px; font-weight: 700; margin-top: 12px">Profil hinzufügen</span>
+    </button>
+  </div>
+
+  <footer style="margin-top: auto; display: flex; gap: 40px; font-size: 20px; color: #B3A79E">
+    <span><strong style="color: #EFE4DA">OK</strong> Profil wählen</span>
+    <span><strong style="color: #EFE4DA">Menü</strong> Profil bearbeiten</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF7A3D","options":["#FF7A3D","#D9383A","#FF9E5E"]},"gold":{"editor":"color","default":"#FFC14D","options":["#FFC14D","#FFD98A","#E8A33A"]},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#FF7A3D', gold: this.props.gold ?? '#FFC14D' };
+  }
+}
+</script>
+</body>
+</html>
