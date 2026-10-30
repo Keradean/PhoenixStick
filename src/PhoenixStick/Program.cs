@@ -15,6 +15,7 @@ app.Configure(config =>
     config.AddCommand<CheckCommand>("check");
     config.AddCommand<PerfCommand>("perf");
     config.AddCommand<BackgroundCommand>("background");
+    config.AddCommand<PrivacyCommand>("privacy");
 
     config.SetExceptionHandler((ex, _) =>
     {

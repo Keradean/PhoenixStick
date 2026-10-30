@@ -12,7 +12,7 @@ public class CheckCommand : AsyncCommand<GlobalSettings>
     public override async Task<int> ExecuteAsync(CommandContext context, GlobalSettings settings, CancellationToken ct)
     {
         var log = ChangeLog.Load(StatePaths.Default().ChangesFile);
-        if (log.PackagesDisabledByTool().Count == 0 && log.PackagesRestrictedByTool().Count == 0)
+        if (log.PackagesDisabledByTool().Count == 0 && log.PackagesRestrictedByTool().Count == 0 && log.SettingsChangedByTool().Count == 0)
         {
             AnsiConsole.MarkupLine("Laut Protokoll hat das Tool nichts geändert. Nichts zu prüfen.");
             return 0;
@@ -25,13 +25,15 @@ public class CheckCommand : AsyncCommand<GlobalSettings>
         var installed = await DeviceStateReader.ReadInstalledAsync(adb, ct);
         var packages = ToolState.ComparePackages(log, await DeviceStateReader.ReadDisabledAsync(adb, ct), installed);
         var background = ToolState.CompareBackground(log, await DeviceStateReader.ReadBackgroundRestrictedAsync(adb, ct), installed);
+        var settingsReport = ToolState.CompareSettings(log, await DeviceStateReader.ReadSettingsAsync(adb, log, ct));
         foreach (var package in packages.Removed.Concat(background.Removed).Distinct())
             AnsiConsole.MarkupLine($"[grey]Nicht mehr installiert, wird ignoriert: {Markup.Escape(package)}[/]");
 
         AnsiConsole.MarkupLine($"Noch deaktiviert: [green]{packages.StillApplied.Count}[/]");
         AnsiConsole.MarkupLine($"Noch im Hintergrund gesperrt: [green]{background.StillApplied.Count}[/]");
+        AnsiConsole.MarkupLine($"Settings wie gesetzt: [green]{settingsReport.StillApplied.Count}[/]");
 
-        if (packages.Reverted.Count == 0 && background.Reverted.Count == 0)
+        if (packages.Reverted.Count == 0 && background.Reverted.Count == 0 && settingsReport.Reverted.Count == 0)
         {
             AnsiConsole.MarkupLine("[green]Alles wie protokolliert.[/] Keine Änderung wurde zurückgesetzt.");
             return 0;
@@ -42,6 +44,8 @@ public class CheckCommand : AsyncCommand<GlobalSettings>
             table.AddRow(Markup.Escape(package), "wieder aktiv");
         foreach (var package in background.Reverted)
             table.AddRow(Markup.Escape(package), "darf wieder im Hintergrund laufen");
+        foreach (var change in settingsReport.Reverted)
+            table.AddRow(Markup.Escape(change.Id), $"Wert geändert, Tool hatte {Markup.Escape(change.ToolValue)} gesetzt");
         AnsiConsole.Write(table);
 
         AnsiConsole.MarkupLine("Vermutlich durch ein Firmware-Update. Erneut anwenden, jeweils erst als Probelauf:");
@@ -49,6 +53,8 @@ public class CheckCommand : AsyncCommand<GlobalSettings>
             AnsiConsole.MarkupLine("  [bold]phoenixstick debloat --preset ...[/], danach mit [bold]--apply[/]");
         if (background.Reverted.Count > 0)
             AnsiConsole.MarkupLine("  [bold]phoenixstick background[/], danach mit [bold]--apply[/]");
+        if (settingsReport.Reverted.Count > 0)
+            AnsiConsole.MarkupLine("  [bold]phoenixstick privacy[/], danach mit [bold]--apply[/]");
         // Exit-Code 2, damit ein Skript den Unterschied zu "alles ok" erkennt
         return 2;
     }

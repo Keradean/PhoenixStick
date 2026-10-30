@@ -1,0 +1,74 @@
+[
+  {
+    "table": "secure",
+    "key": "limit_ad_tracking",
+    "value": "1",
+    "label": "Werbe-Tracking begrenzen",
+    "reason": "Apps sollen die Werbe-ID nicht für personalisierte Werbung nutzen",
+    "source": "CLAUDE.md Kandidatenliste, auf diesem Gerät in secure statt global (settings get, Goal 04)",
+    "mode": "set"
+  },
+  {
+    "table": "secure",
+    "key": "amz_limit_ad_tracking",
+    "value": "1",
+    "label": "Werbe-Tracking begrenzen (Amazon)",
+    "reason": "Wie limit_ad_tracking, für Amazons eigene Werbung",
+    "source": "settings list secure am Gerät (Goal 04)",
+    "mode": "set"
+  },
+  {
+    "table": "secure",
+    "key": "non_amz_limit_ad_tracking",
+    "value": "1",
+    "label": "Werbe-Tracking begrenzen (Dritte)",
+    "reason": "Wie limit_ad_tracking, für Werbung von Drittanbietern",
+    "source": "settings list secure am Gerät (Goal 04)",
+    "mode": "set"
+  },
+  {
+    "table": "secure",
+    "key": "USAGE_METRICS_UPLOAD_ENABLED",
+    "value": "0",
+    "label": "Nutzungsdaten hochladen",
+    "reason": "Upload von Nutzungsmetriken an Amazon",
+    "source": "settings list secure am Gerät (Goal 04)",
+    "mode": "set"
+  },
+  {
+    "table": "secure",
+    "key": "usage_metrics_marketing_enabled",
+    "value": "0",
+    "label": "Nutzungsdaten für Marketing",
+    "reason": "Nutzungsdaten für Marketingzwecke",
+    "source": "settings list secure am Gerät (Goal 04)",
+    "mode": "set"
+  },
+  {
+    "table": "secure",
+    "key": "advertisingIdApp:interestBasedAds:value",
+    "value": "0",
+    "label": "Interessenbasierte Werbung",
+    "reason": "Menü Datenschutzeinstellungen, wird mit dem Amazon-Konto synchronisiert. Dennis schaltet es am TV aus",
+    "source": "settings list secure am Gerät (Goal 04)",
+    "mode": "verify"
+  },
+  {
+    "table": "secure",
+    "key": "settingsApp:appUsageData:value",
+    "value": "0",
+    "label": "Daten zur App-Nutzung sammeln",
+    "reason": "Menü Datenschutzeinstellungen, wird mit dem Amazon-Konto synchronisiert. Dennis schaltet es am TV aus",
+    "source": "settings list secure am Gerät (Goal 04)",
+    "mode": "verify"
+  },
+  {
+    "table": "secure",
+    "key": "settingsApp:deviceUsageData:value",
+    "value": "0",
+    "label": "Gerätenutzungsdaten",
+    "reason": "Menü Datenschutzeinstellungen, wird mit dem Amazon-Konto synchronisiert. Dennis schaltet es am TV aus",
+    "source": "settings list secure am Gerät (Goal 04)",
+    "mode": "verify"
+  }
+]

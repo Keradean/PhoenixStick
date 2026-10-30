@@ -16,6 +16,7 @@ public static class ChangeOutput
             ChangeAction.Enable => "aktiviert",
             ChangeAction.RestrictBackground => "im Hintergrund gesperrt",
             ChangeAction.AllowBackground => "darf wieder im Hintergrund laufen",
+            ChangeAction.PutSetting or ChangeAction.RestoreSetting => $"{entry.OldValue} → {entry.NewValue}",
             _ => entry.Action.ToString(),
         };
         var line = entry.Result switch

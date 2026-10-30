@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using PhoenixStick.Changes;
 using PhoenixStick.Debloat;
+using PhoenixStick.Privacy;
 using PhoenixStick.Storage;
 using Spectre.Console;
 using Spectre.Console.Cli;
@@ -14,7 +15,7 @@ public class RestoreCommand : AsyncCommand<ApplySettings>
     {
         var paths = StatePaths.Default();
         var log = ChangeLog.Load(paths.ChangesFile);
-        if (log.PackagesDisabledByTool().Count == 0 && log.PackagesRestrictedByTool().Count == 0)
+        if (log.PackagesDisabledByTool().Count == 0 && log.PackagesRestrictedByTool().Count == 0 && log.SettingsChangedByTool().Count == 0)
         {
             AnsiConsole.MarkupLine("Laut Protokoll hat das Tool nichts geändert. Nichts zu tun.");
             return 0;
@@ -27,27 +28,37 @@ public class RestoreCommand : AsyncCommand<ApplySettings>
         var installed = await DeviceStateReader.ReadInstalledAsync(adb, ct);
         var packages = ToolState.ComparePackages(log, await DeviceStateReader.ReadDisabledAsync(adb, ct), installed);
         var background = ToolState.CompareBackground(log, await DeviceStateReader.ReadBackgroundRestrictedAsync(adb, ct), installed);
+        var settingsReport = ToolState.CompareSettings(log, await DeviceStateReader.ReadSettingsAsync(adb, log, ct));
         foreach (var package in packages.Removed.Concat(background.Removed).Distinct())
             AnsiConsole.MarkupLine($"[grey]Nicht mehr installiert, wird ignoriert: {Markup.Escape(package)}[/]");
 
         var toEnable = Filter(packages.StillApplied, settings.Package);
         var toAllow = Filter(background.StillApplied, settings.Package);
-        var alreadyUndone = Filter(packages.Reverted, settings.Package).Concat(Filter(background.Reverted, settings.Package)).ToList();
+        var toReset = settingsReport.StillApplied.Where(c => settings.Package is null || c.Id == settings.Package).ToList();
+        var alreadyUndone = Filter(packages.Reverted, settings.Package)
+            .Concat(Filter(background.Reverted, settings.Package))
+            .Concat(Filter(settingsReport.Reverted.Select(c => c.Id).ToList(), settings.Package))
+            .ToList();
 
-        if (settings.Package is not null && toEnable.Count + toAllow.Count + alreadyUndone.Count == 0)
+        if (settings.Package is not null && toEnable.Count + toAllow.Count + toReset.Count + alreadyUndone.Count == 0)
         {
             AnsiConsole.MarkupLine($"[red]{Markup.Escape(settings.Package)} hat das Tool nicht geändert.[/] restore fasst nur eigene Änderungen an.");
             return 1;
         }
 
-        var table = new Table().Title($"Wird zurückgenommen ({toEnable.Count + toAllow.Count})").AddColumn("Paket").AddColumn("Was").AddColumn("adb-Befehl");
+        var table = new Table().Title($"Wird zurückgenommen ({toEnable.Count + toAllow.Count + toReset.Count})").AddColumn("Paket").AddColumn("Was").AddColumn("adb-Befehl");
         foreach (var package in toEnable)
             table.AddRow(Markup.Escape(package), "wieder aktivieren", $"[grey]{Markup.Escape(PackageCommands.Enable(package))}[/]");
         foreach (var package in toAllow)
             table.AddRow(Markup.Escape(package), "Hintergrund wieder erlauben", $"[grey]{Markup.Escape(PackageCommands.AllowBackground(package))}[/]");
+        foreach (var change in toReset)
+        {
+            var target = SettingTarget.FromId(change.Id, change.OriginalValue);
+            table.AddRow(Markup.Escape(change.Id), $"zurück auf {Markup.Escape(change.OriginalValue)}", $"[grey]settings put {Markup.Escape(target.Table)} {Markup.Escape(target.Key)} {Markup.Escape(target.Value)}[/]");
+        }
         AnsiConsole.Write(table);
         foreach (var package in alreadyUndone)
-            AnsiConsole.MarkupLine($"Übersprungen, schon wieder im Ausgangszustand: {Markup.Escape(package)}");
+            AnsiConsole.MarkupLine($"Übersprungen, nicht mehr im Zustand des Tools: {Markup.Escape(package)}");
 
         if (!settings.Apply)
         {
@@ -56,7 +67,7 @@ public class RestoreCommand : AsyncCommand<ApplySettings>
             return 0;
         }
 
-        var total = toEnable.Count + toAllow.Count;
+        var total = toEnable.Count + toAllow.Count + toReset.Count;
         if (total == 0)
         {
             AnsiConsole.MarkupLine("Nichts zu tun.");
@@ -80,6 +91,17 @@ public class RestoreCommand : AsyncCommand<ApplySettings>
                 summary.Protected + second.Protected,
                 summary.Failed + second.Failed,
                 second.Stopped);
+        }
+        if (!summary.Stopped)
+        {
+            var targets = toReset.Select(c => SettingTarget.FromId(c.Id, c.OriginalValue)).ToList();
+            var third = await new SettingsChanger(adb, log).RunAsync(ChangeAction.RestoreSetting, targets, ChangeOutput.PrintEntry, ct);
+            summary = new ChangeSummary(
+                summary.Changed + third.Changed,
+                summary.Skipped + third.Skipped,
+                summary.Protected,
+                summary.Failed + third.Failed,
+                third.Stopped);
         }
 
         ChangeOutput.PrintSummary(summary, "zurückgenommen", alreadyUndone.Count);

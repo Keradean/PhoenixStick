@@ -15,6 +15,18 @@ public static class DeviceStateReader
     public static async Task<IReadOnlySet<string>> ReadBackgroundRestrictedAsync(IAdbClient adb, CancellationToken ct) =>
         AppOpsParser.BackgroundRestricted(await ReadAsync(adb, "dumpsys appops", ct));
 
+    /// <summary>Aktuelle Werte der Settings, die das Tool laut Protokoll geändert hat.</summary>
+    public static async Task<IReadOnlyDictionary<string, string>> ReadSettingsAsync(IAdbClient adb, ChangeLog log, CancellationToken ct)
+    {
+        var values = new Dictionary<string, string>(StringComparer.Ordinal);
+        foreach (var change in log.SettingsChangedByTool())
+        {
+            var separator = change.Id.IndexOf('/');
+            values[change.Id] = (await ReadAsync(adb, $"settings get {change.Id[..separator]} {change.Id[(separator + 1)..]}", ct)).Trim();
+        }
+        return values;
+    }
+
     private static async Task<string> ReadAsync(IAdbClient adb, string command, CancellationToken ct)
     {
         var result = await adb.ShellReadAsync(command, ct);

@@ -9,6 +9,8 @@ public enum ChangeAction
     Enable,
     RestrictBackground,
     AllowBackground,
+    PutSetting,
+    RestoreSetting,
 }
 
 /// <summary>Bei der Hintergrundsperre steht Enabled für "darf im Hintergrund laufen", Disabled für "gesperrt".</summary>
@@ -25,13 +27,23 @@ public enum ChangeResult
     Failed,
 }
 
+/// <param name="Package">Paketname, bei Settings die Kennung "tabelle/schlüssel".</param>
+/// <param name="OldValue">Nur bei Settings: Wert vor der Änderung.</param>
+/// <param name="NewValue">Nur bei Settings: gesetzter Wert.</param>
 public record ChangeEntry(
     DateTime Timestamp,
     string Package,
     ChangeAction Action,
     PackageState StateBefore,
     ChangeResult Result,
-    string DeviceMessage);
+    string DeviceMessage,
+    string? OldValue = null,
+    string? NewValue = null);
+
+/// <param name="Id">Kennung "tabelle/schlüssel".</param>
+/// <param name="OriginalValue">Wert, den restore wiederherstellt.</param>
+/// <param name="ToolValue">Wert, den das Tool gesetzt hat.</param>
+public record SettingChange(string Id, string OriginalValue, string ToolValue);
 
 /// <summary>Änderungsprotokoll in state/changes.json. Jeder Eintrag wird sofort auf die Platte geschrieben.</summary>
 public class ChangeLog
@@ -88,6 +100,21 @@ public class ChangeLog
     /// <summary>Apps, die das Tool im Hintergrund gesperrt und seitdem nicht wieder freigegeben hat.</summary>
     public IReadOnlyList<string> PackagesRestrictedByTool() =>
         ChangedByTool(ChangeAction.RestrictBackground, ChangeAction.AllowBackground);
+
+    /// <summary>Settings, die das Tool gesetzt und seitdem nicht zurückgesetzt hat.</summary>
+    public IReadOnlyList<SettingChange> SettingsChangedByTool()
+    {
+        var result = new List<SettingChange>();
+        var relevant = _entries.Where(e =>
+            e.Result == ChangeResult.Success && e.Action is ChangeAction.PutSetting or ChangeAction.RestoreSetting);
+        foreach (var group in relevant.GroupBy(e => e.Package))
+        {
+            var last = group.Last();
+            if (last.Action == ChangeAction.PutSetting && last.OldValue is not null && last.NewValue is not null)
+                result.Add(new SettingChange(group.Key, last.OldValue, last.NewValue));
+        }
+        return result.OrderBy(c => c.Id, StringComparer.Ordinal).ToList();
+    }
 
     private IReadOnlyList<string> ChangedByTool(ChangeAction apply, ChangeAction undo)
     {

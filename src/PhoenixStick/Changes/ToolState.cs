@@ -24,4 +24,17 @@ public static class ToolState
             present.Where(p => !appliedOnDevice.Contains(p)).ToList(),
             byTool.Except(present).ToList());
     }
+
+    /// <param name="currentValues">Aktuelle Werte vom Gerät, Schlüssel ist die Kennung "tabelle/schlüssel".</param>
+    public static SettingsReport CompareSettings(ChangeLog log, IReadOnlyDictionary<string, string> currentValues)
+    {
+        var changes = log.SettingsChangedByTool();
+        return new SettingsReport(
+            changes.Where(c => currentValues.GetValueOrDefault(c.Id) == c.ToolValue).ToList(),
+            changes.Where(c => currentValues.GetValueOrDefault(c.Id) != c.ToolValue).ToList());
+    }
 }
+
+/// <param name="StillApplied">Wert steht noch so, wie das Tool ihn gesetzt hat.</param>
+/// <param name="Reverted">Wert wurde verändert, z. B. von Fire OS beim Booten.</param>
+public record SettingsReport(IReadOnlyList<SettingChange> StillApplied, IReadOnlyList<SettingChange> Reverted);
