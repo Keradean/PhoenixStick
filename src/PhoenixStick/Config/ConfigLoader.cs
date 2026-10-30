@@ -18,7 +18,12 @@ public static class ConfigLoader
         }
 
         if (!string.IsNullOrWhiteSpace(hostOverride))
-            return ParseHost(hostOverride, fromFile?.Port ?? AppConfig.DefaultPort) with { Keep = fromFile?.Keep, RestrictBackground = fromFile?.RestrictBackground };
+            return ParseHost(hostOverride, fromFile?.Port ?? AppConfig.DefaultPort) with
+            {
+                Keep = fromFile?.Keep,
+                RestrictBackground = fromFile?.RestrictBackground,
+                AdGuard = fromFile?.AdGuard,
+            };
 
         if (fromFile is null)
             throw new FileNotFoundException(

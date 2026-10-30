@@ -16,6 +16,7 @@ app.Configure(config =>
     config.AddCommand<PerfCommand>("perf");
     config.AddCommand<BackgroundCommand>("background");
     config.AddCommand<PrivacyCommand>("privacy");
+    config.AddCommand<DnsCommand>("dns");
 
     config.SetExceptionHandler((ex, _) =>
     {
