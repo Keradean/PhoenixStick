@@ -1,0 +1,15 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+.idea/
+TestResults/
+
+# Gerätedaten, Snapshots und Protokolle bleiben lokal
+backup/
+state/
+config.json
+
+# Persönliche Claude-Code-Einstellungen
+.claude/settings.local.json

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(adb version)",
+      "Bash(adb devices *)",
+      "Bash(adb connect *)",
+      "Bash(adb disconnect *)",
+      "Bash(adb shell getprop *)",
+      "Bash(adb shell pm list *)",
+      "Bash(adb shell pm path *)",
+      "Bash(adb shell dumpsys package *)",
+      "Bash(adb shell settings get *)",
+      "Bash(adb shell settings list *)",
+      "Bash(dotnet --version)",
+      "Bash(dotnet --list-sdks)",
+      "Bash(dotnet new *)",
+      "Bash(dotnet sln *)",
+      "Bash(dotnet add *)",
+      "Bash(dotnet restore *)",
+      "Bash(dotnet build *)",
+      "Bash(dotnet test *)",
+      "Bash(dotnet run *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ],
+    "ask": [
+      "Bash(*--apply*)",
+      "Bash(adb *disable*)",
+      "Bash(adb *enable*)",
+      "Bash(adb *settings put*)",
+      "Bash(adb *settings delete*)",
+      "Bash(adb *appops set*)",
+      "Bash(adb *install*)",
+      "Bash(adb *reboot*)",
+      "Bash(adb *force-stop*)"
+    ],
+    "deny": [
+      "Bash(adb *uninstall*)",
+      "Bash(adb *pm clear*)",
+      "Bash(adb *wipe*)",
+      "Bash(adb *recovery*)",
+      "Bash(adb *bootloader*)",
+      "Bash(adb *sideload*)",
+      "Bash(adb *shell rm *)",
+      "Bash(fastboot *)",
+      "Bash(sudo *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git merge *)",
+      "Bash(git rebase *)",
+      "Bash(git reset *)",
+      "Bash(git restore *)",
+      "Bash(git checkout *)",
+      "Bash(git switch *)",
+      "Bash(git stash *)",
+      "Bash(git clean *)",
+      "Bash(git tag *)"
+    ]
+  }
+}
