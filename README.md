@@ -46,12 +46,12 @@ In `config.json` die IP des Sticks eintragen:
 
 ```json
 {
-  "host": "192.168.178.26",
+  "host": "192.168.178.**",
   "port": 5555,
   "keep": [],
   "restrictBackground": [],
   "adGuard": {
-    "url": "http://192.168.178.2",
+    "url": "http://192.168.178.*",
     "user": "admin",
     "password": "hier-eintragen"
   }
